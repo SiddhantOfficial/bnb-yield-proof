@@ -88,8 +88,11 @@
         "submissionTransaction": "0x6964ab4f8c64a2144e12415ab4cbe7412ad630a6f74be7126b8095ddc6087ee6",
         "serviceDelivered": true,
         "manifestHashVerified": true,
-        "settlementPending": true,
-        "earliestSettlementUtc": "2026-10-03T14:55:32.000Z"
+        "settlementPending": false,
+        "earliestSettlementUtc": "2026-10-03T14:55:32.000Z",
+        "settlementTransaction": "0xf55ac751ba23afba139eb5803c2ebfec591ae988e9df003d84fbf4ae11d45632",
+        "completedUtc": "2026-10-03T15:10:27.000Z",
+        "liveJobStatus": 3
       }
     }
   ],
@@ -129,7 +132,7 @@
     "lendingUtcDays": [
       "2026-10-03"
     ],
-    "outboundDeliveredAndSettled": 2,
+    "outboundDeliveredAndSettled": 3,
     "independentInboundHires": 0,
     "evidence": "data/hires.json",
     "finalCampaignReviewPending": true,

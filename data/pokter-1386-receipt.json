@@ -69,9 +69,74 @@
     "nativeValue": "0"
   },
   "limitations": [
-    "Read-only audit; no settlement transaction performed.",
-    "Submitted is not completed.",
     "This seller delivered escrow verification, not rebalance strategy execution.",
-    "No guaranteed organizer acceptance or merchandise placement."
-  ]
+    "No guaranteed organizer acceptance or merchandise placement.",
+    "Completion independently verified after a separate external account sent settle; no settlement is attributed to the campaign wallet."
+  ],
+  "completionAudit": {
+    "checkedAt": "2026-10-03T17:45:46.749Z",
+    "chainId": 97,
+    "job": {
+      "id": "1386",
+      "client": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+      "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+      "evaluator": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+      "description": "{\"protocol\":\"pokter-job\",\"version\":1,\"identity\":{\"chainId\":97,\"tokenId\":\"2541\",\"name\":\"Pokt\"},\"category\":\"rebalancing\",\"provider\":\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\",\"providerLabel\":\"Pokt\",\"task\":\"Verify this funded BSC testnet escrow’s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.\"}",
+      "budget": "100000000000000000",
+      "expiredAt": "1791121134",
+      "status": 3,
+      "hook": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+      "submittedAt": "1791038432",
+      "deliverable": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e"
+    },
+    "txHash": "0xf55ac751ba23afba139eb5803c2ebfec591ae988e9df003d84fbf4ae11d45632",
+    "from": "0xb038d6d8c4e3b173add7ae3a205ac33c9a27033a",
+    "to": "0xd7d36d66d2f1b608a0f943f722d27e3744f66f25",
+    "valueWei": "0",
+    "input": "0x39c2ebb9000000000000000000000000000000000000000000000000000000000000056a00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000",
+    "call": {
+      "functionName": "settle",
+      "args": [
+        "1386",
+        "0x"
+      ]
+    },
+    "receiptStatus": "success",
+    "blockNumber": "134651707",
+    "utc": "2026-10-03T15:10:27.000Z",
+    "gasUsed": "118124",
+    "effectiveGasPrice": "100000000",
+    "events": [
+      {
+        "eventName": "JobCompleted",
+        "args": {
+          "jobId": "1386",
+          "evaluator": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+          "reason": "0x85bf18bc2ca1d797a2eb656e3ed3092023283af3714e18d3f13f4d3921885d96"
+        },
+        "address": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de",
+        "topics": [
+          "0x0fd54bd364fa9e67f17b091aefe930932c09fe7651cf5ad02c71a418f3341444",
+          "0x000000000000000000000000000000000000000000000000000000000000056a",
+          "0x000000000000000000000000d7d36d66d2f1b608a0f943f722d27e3744f66f25"
+        ],
+        "logIndex": 2
+      },
+      {
+        "eventName": "PaymentReleased",
+        "args": {
+          "jobId": "1386",
+          "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+          "amount": "100000000000000000"
+        },
+        "address": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de",
+        "topics": [
+          "0x21d71db5be59bb9fa133895586b7404307dd33fb93b16db09dc6f1d9d7d231b0",
+          "0x000000000000000000000000000000000000000000000000000000000000056a",
+          "0x00000000000000000000000060ef148485c2a5119fa52ca13c52e9fd98f28e87"
+        ],
+        "logIndex": 3
+      }
+    ]
+  }
 }
