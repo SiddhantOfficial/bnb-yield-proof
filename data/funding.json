@@ -1,0 +1,28 @@
+{
+  "chainId": 97,
+  "campaignWallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+  "claims": [
+    {
+      "chainId": 97,
+      "wallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+      "faucet": "0x86e9197CC0F76E4e4aaa7082180945196bBAb5D3",
+      "token": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+      "amountBaseUnits": "10000000000000000000",
+      "decimals": 18,
+      "amountTestU": "10",
+      "transactionHash": "0x80e73dc229a542a75c0b9d9bf615b3664c82e548699c3fbeab21f7de585f5403",
+      "blockNumber": "134635176",
+      "utc": "2026-10-03T13:06:27.000Z",
+      "receiptStatus": "success",
+      "transactionValueWei": "0",
+      "gasUsed": "93007",
+      "testnetGasCostWei": "93007000000000",
+      "verifiedTransferFromFaucet": true,
+      "balanceAfterClaimBaseUnits": "10000000000000000000",
+      "countsAsHire": false,
+      "countsAsLendingAction": false,
+      "realMoneySpent": "0",
+      "explorer": "https://testnet.bscscan.com/tx/0x80e73dc229a542a75c0b9d9bf615b3664c82e548699c3fbeab21f7de585f5403"
+    }
+  ]
+}
