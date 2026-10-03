@@ -1,3 +1,15 @@
+# Updated operational preflight result — 3 October 2026
+
+**Operational gate passed for HelloFugu and Pokter identity 97:2541; final campaign qualification remains pending.**
+
+The deeper investigation resolved Pokter's provider mismatch by selecting its actual receipt-service identity, **Pokt 2541**, instead of 2237 or 1926. Registry ownership, marketplace detail/hire pages and delivery card match provider `0x60eF148485C2a5119fa52CA13c52E9fd98F28e87`. The generic marketplace envelope is supported by this provider. A historical completed job and exact canonical deliverable hash were verified onchain. The compatible free U faucet and user-wallet transaction path were also checked. See [full evidence](pokter-feasibility.md) and [structured preflight](../data/preflight.json).
+
+Use Pokt only for its actual **canonical escrow receipt and manifest** service. It does not perform rebalancing. New hires are pending until this user's actual hire events, funding, deliverable and completion are verified. Past jobs and probes are not campaign hires. Exact campaign acceptance remains BNB Chain's decision.
+
+The earlier snapshot below records why other routes were held. Its PAUSED status is superseded only for HelloFugu + Pokter 2541. Agent Souk's event mapping and the unrelated Pokter sellers remain conditional.
+
+---
+
 # Marketplace preflight — 3 October 2026
 
 **Status: PAUSED — the second qualifying marketplace is not yet verified.**
@@ -47,7 +59,7 @@ The subscription UI only sends the hire transaction; it does not invoke the agen
 | --- | --- | --- |
 | [Agent Atlas](https://www.agent-atlas.xyz/) | Chain 97 commerce `0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de`, free U token. Catalog exposed twelve mapped AgentCore sellers, including [Yield Venus USDT 2478](https://www.agent-atlas.xyz/a/2478). | Activate UI sends a POST to a backend, without a MetaMask transaction-signing call. The signer configuration for this new campaign wallet and seller OAuth access are unverified. Do not assume connected address equals onchain buyer. Yield Proof is not a mapped hireable seller there. |
 | [Pokter](https://pokter.xyz/) | Own browser wallet signing, chain 97 ERC-8183 escrow, same free U. Historical live `getJob(1336)` shows status 3 / COMPLETED for its delivery provider. | [Sluicegate 2237](https://pokter.xyz/agents/97/2237) is advertised at 0.10 test U, but safe free trial returned a signed **chain 56** quote using mainnet U. The browser hire path uses a separate Pokter envelope. Sluicegate's testnet self-delivery is unconfirmed; substituting Pokter's delivery agent for the selected identity may not engage the claimed agent. |
-| [Agent Souk](https://agentsouk.xyz/about) | Chain 97 sUSD payment, gas-sponsored EIP-3009/x402 signing; live-listed Souk Yield Lens 2521 and other reference agents. | No distinct qualifying onchain hire event linking buyer, listed agent and work was verified in this audit. An x402 token transfer and offchain receipt cannot be assumed to meet the official hire-event requirement. |
+| [Agent Souk](https://agentsouk.xyz/about) | Chain 97 sUSD payment, permissionless test-token mint, sponsored EIP-3009 signing, responsive Yield Lens 2521, and public durable hire receipts verified. Source and a historical transaction prove `AuthorizationUsed` plus `Transfer`. | Souk documents those token events as its hire proof, but the agent ID and completed job are linked through its offchain receipt, not an onchain hire/job event. BNB Chain acceptance of this mapping remains unconfirmed. |
 | [KATTEGAT](https://kattegat.xyz/agents/56%3A361597) | Testnet session/commission UI; zero U job budget offered. | Its page says hiring creates a separate passkey wallet; optional connected wallet is only identity. It also discloses agent handoff is not wired and payment release is unavailable. This does not establish an engaged hire from the registered campaign wallet. |
 | [Marque Trade](https://marque.trade/docs/faq) | Live agents, verified answers, ERC-8183 hire lifecycle. | Official FAQ states hires use **chain 56**, real U and BNB. Testnet charter sandbox is separate. Free preflight is not a paid onchain hire. Outside this budget until an eligible testnet hiring flow is proven. |
 | [Dolphin](https://www.dolphinamp.xyz/) | Live agent catalog and escrow workflow. | Published hiring contracts and footer identify **mainnet chain 56**; no zero-cost chain 97 hire established. |
@@ -68,8 +80,31 @@ Before a new qualifying hire, verify a second shortlisted marketplace supports a
 
 Do not claim guaranteed qualification, a reserved place, independent users, completed hires, or elapsed activity days from simulations. The official rules leave the final verification and first-100 placement to BNB Chain.
 
+## Agent Souk source and live verification follow-up
+
+Read-only review used [the actual BNB marketplace repository](https://github.com/blockballr/agentsouk/tree/25a67d2d62e248d0d12e83ef17a731145d5d7834), not the similarly named marketplace on Base. Live `GET /api/chain` returned chain **97**, settlement symbol **sUSD**. The token is `0x9332b1AA9B3d5826F0b9b9e1659D962d2dA13A53` with 18 decimals. The campaign wallet currently has zero sUSD and zero Souk hire receipts. [Live campaign-wallet receipts](https://api.agentsouk.xyz/api/hires/by-wallet?wallet=0x0b306A358aEf8C391779bcc62A8253aabf524993)
+
+**Free funding is technically available.** `mint(address,uint256)` is permissionless. A read-only `eth_call` simulating minting 10 sUSD from the campaign wallet succeeded (`0x`); it did not mint tokens. The website's sponsored mint requests one plain `personal_sign` message headed `Agent Souk test tokens`, containing address, amount, nonce and expiry. Its backend pays the gas, grants 10 sUSD, caps sponsored grants at 100 sUSD per address, and optionally tops native balance up to 0.001 tBNB while keeping a relay reserve. Live sponsored service success still requires the user to sign; none was attempted. A user-signed direct mint is another testnet-only path. [Token contract](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/contracts/src/TestUSD.sol), [sponsored mint handler](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/src/app/api/tokens/mint/route.ts)
+
+**Own-wallet hiring is implemented.** Requirements are prepared for a selected ERC-8004 ID; the wallet signs an EIP-712 `TransferWithAuthorization` for `eip155:97`, the sUSD verifying contract, exact recipient and amount. The relay broadcasts and pays gas. The default session price is 2 sUSD, with a 24-hour session and a displayed 5 USD spend cap. The cap does not mean an unlimited spending approval: the reviewed settlement signs one exact transfer. `start_hire` opens a durable Funded job; `deliver_task` separately calls the selected registered endpoint and records a result. The buyer must review the live domain and quote before signing. [Signing and settlement flow](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/apps/web/src/lib/hire.ts), [facilitator](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/src/lib/facilitator.ts), [delivery](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/src/lib/delivery.ts)
+
+**A useful agent is responsive.** Souk Yield Lens, token **2521**, receives at `0x84fedaBd1b83443aD86796C15619494878B64180`. Its [agent card](https://api.agentsouk.xyz/api/reference/yield/.well-known/agent-card.json) points to a stateless A2A arithmetic endpoint. A free probe with principal 100, nominal annual rate 12%, monthly compounding and 200 basis point annual fee returned a completed result: effective rate 12.6825%, net rate 10.6825%, projected annual earnings 10.68. It explicitly discloses caller-supplied values and no market data. This probe is not a hire. [Stateless handler](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/src/app/api/reference/yield/a2a/route.ts)
+
+Yield Proof's [Souk detail endpoint](https://api.agentsouk.xyz/api/agents/97/2550) discovers the correct identity and wallet, but [the admitted catalog search](https://api.agentsouk.xyz/api/agents?q=Yield%20Proof&limit=60) returned zero results. Registry discovery does not establish a marketplace listing.
+
+**The remaining issue is event eligibility.** A public historical [YieldPilot receipt](https://api.agentsouk.xyz/api/receipts/hire0aa9e8204b7f) ties buyer `0xC76Ea6E8533c9Fe1D25ff9Fa3Bd7D0EDFdf46713`, token 2044 and [transaction 0x201818fe26bb7f58a7b175ecb55236bfb34c68579a95292ee03bc2c2360659e0](https://testnet.bscscan.com/tx/0x201818fe26bb7f58a7b175ecb55236bfb34c68579a95292ee03bc2c2360659e0). The live RPC receipt succeeded and contains exactly two sUSD logs:
+
+```text
+AuthorizationUsed(address indexed authorizer, bytes32 indexed nonce)
+topic0 0x98de503528ee59b575ef0c0a2576a82497bfc029a5685b209e9ec333479b10a5
+Transfer(address indexed from, address indexed to, uint256 value)
+topic0 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+```
+
+The recipient matches the receipt's agent wallet. Agent ID, session ID and job ID are absent from those onchain logs. Souk's [29 September tracking addendum](https://github.com/blockballr/agentsouk/blob/25a67d2d62e248d0d12e83ef17a731145d5d7834/docs/tracking-addendum-2026-09-29.md) explicitly declares these two token events to represent its hire proof and declares job completion offchain. Therefore there is concrete operational evidence for a free hire, but no organizer confirmation that this event mapping meets the campaign. The historical activity is declared marketplace-team testing and cannot count for this participant.
+
 ## Organizer clarification to request
 
 No message has been sent. The participant could ask:
 
-> For testnet agent hiring, does an Agent Souk x402 payment settlement transaction plus its durable hire/task receipt satisfy your onchain hire-event requirement? If yes, which contract/event or receipt fields should reviewers use? Which shortlisted platform currently supports a completed chain 97 hire from a participant-controlled wallet using free faucet tokens?
+> For testnet agent hiring, does Agent Souk's `AuthorizationUsed` plus `Transfer` on sUSD contract `0x9332b1AA9B3d5826F0b9b9e1659D962d2dA13A53`, linked to the registered agent ID by its public durable hire receipt and delivered task, satisfy your onchain hire-event requirement? The agent and job IDs are offchain. If this mapping is insufficient, which shortlisted platform supports a completed chain 97 hire from a participant-controlled wallet using free faucet tokens?

@@ -19,8 +19,8 @@ The owner reported submitting the campaign form on 3 October 2026 before identit
 
 1. Open [Yield Proof](https://bnb-yield-proof.siditude28.workers.dev/) in Chrome with MetaMask. Use the campaign wallet above and **BSC Testnet**. Identity 2550 is already registered; do not register a duplicate.
 2. Use only free test BNB for gas and lending. The [GHOST BNB testnet faucet](https://ghostchain.io/faucet/bnb-testnet/) supplied the initial test tokens. Availability must be checked again when needed. Never buy real BNB for this plan or share a recovery phrase/private key.
-3. The [operation page](https://bnb-yield-proof.siditude28.workers.dev/operate) stays gated until final marketplace preflight passes. Once enabled, review the agent's proposal and reason, then approve a bounded transaction in MetaMask after checking the network, target, amount and gas. Count only a confirmed category-relevant lending transaction.
-4. Marketplace candidates in [the qualification guide](docs/qualification.md) are still awaiting final preflight. Do not hire them until the free flow, agent engagement and actual onchain event have been checked.
+3. The [operation page](https://bnb-yield-proof.siditude28.workers.dev/operate) checks the completed operational preflight. When it proposes an action, review the agent's proposal and reason, then approve a bounded transaction in MetaMask after checking the network, target, amount and gas. Count only a confirmed category-relevant lending transaction.
+4. Use the checked HelloFugu and Pokter 97:2541 paths in [the qualification guide](docs/qualification.md). Verify the current network, selected provider, free payment token and budget before signing; count a hire only after the actual receipt and useful delivery are verified.
 5. The owner must recruit three real independent users who want the service. They use their own wallets and obtain their own free test tokens. Publish completed hire and deliverable records when verified. Simulated clients do not satisfy this requirement.
 
 The operator signs locally from the **one registered campaign wallet**. The server signs no wallet transactions. The previously generated separate executor wallet was unused and has been retired; its automation key has been removed. GitHub Actions performs read-only observation and verification, with no lending signing key.
@@ -42,7 +42,7 @@ APY is estimated from the onchain supply rate using an assumed 0.45-second testn
 
 ## Zero-cost feasibility
 
-**Qualification attempt paused.** HelloFugu has a verified testnet hire event and responsive agents, but a second qualifying zero-cost marketplace flow remains unverified. See [the marketplace audit](docs/marketplace-preflight.md) for platform-specific blockers and the exact question to ask the organizer. Lending and hire execution remain disabled.
+**Operational zero-cost preflight passed for HelloFugu and Pokter identity 97:2541.** Pokter’s provider matches its listed identity, accepts the generic marketplace job envelope, and has a completed historical receipt whose manifest hash reconciles onchain. Its service is escrow receipt/manifest work; no rebalance is claimed. See [preflight facts](data/preflight.json), [Pokter investigation](docs/pokter-feasibility.md), and [the marketplace audit](docs/marketplace-preflight.md). Actual listing, hires, lending activity and final BNB Chain qualification remain pending. Owner approvals are required for wallet transactions.
 
 ## Qualification status
 

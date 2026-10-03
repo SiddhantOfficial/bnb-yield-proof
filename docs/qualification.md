@@ -26,13 +26,13 @@ Registration, approval, faucet receipt, ordinary transfer, probe or simulation d
 
 ## Marketplace candidates and free-flow gate
 
-Final preflight is pending. These are candidates, not completed hires. Check live availability, chain/contract, test token compatibility, actual engagement and the event emitted by the hire flow before relying on one. The operation page stays gated until this audit passes; no hire is recommended yet.
+Operational preflight has passed for HelloFugu and Pokter identity 97:2541. These are checked routes, not completed hires. Check live availability, chain/contract, test token compatibility, actual engagement and the event emitted by the hire flow before relying on one. The operation page still checks market, gas, history and daily allocation limits; the owner must sign any proposal.
 
 | Marketplace | Candidate | Proposed use |
 | --- | --- | --- |
 | [HelloFugu](https://app.hellofugu.xyz/agents?available=yes) | Scout **2515** | A useful investigation supported by its current listing |
 | [HelloFugu](https://app.hellofugu.xyz/agents?available=yes) | Quote **2517** | An actual quote task supported by its listing |
-| [Pokter](https://pokter.xyz/hire/97/2237) | Sluicegate **2237**, chain 97 | Second-market fallback through its supported hire flow |
+| [Pokter](https://pokter.xyz/hire/97/2541) | Pokt **2541**, chain 97 | Canonical escrow receipt and manifest verification; no rebalance claimed |
 
 Use the [United Stables testnet U faucet](https://united-coin-u.github.io/u-faucet/) only if the verified marketplace flow accepts that token. Compare its token contract, decimals and chain with the hire contract; faucet availability alone does not establish compatibility. Use free test tokens and bounded amounts. Complete faucet verification personally. The [GHOST faucet](https://ghostchain.io/faucet/bnb-testnet/) supplied the campaign wallet's initial test BNB gas balance.
 

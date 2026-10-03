@@ -1,0 +1,33 @@
+{
+  "agentId": 2550,
+  "chainId": 97,
+  "endpoint": "https://bnb-yield-proof.siditude28.workers.dev",
+  "testTrafficOnly": true,
+  "countsForCampaign": false,
+  "observations": [
+    {
+      "at": "2026-10-03T10:22:59.073Z",
+      "ok": true,
+      "checks": [
+        {
+          "name": "health",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 12830
+        },
+        {
+          "name": "card",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 6733
+        },
+        {
+          "name": "invoke",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 6297
+        }
+      ]
+    }
+  ]
+}

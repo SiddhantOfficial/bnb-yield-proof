@@ -1,0 +1,42 @@
+{
+  "checkedOn": "2026-10-03",
+  "operationalPreflightPassed": true,
+  "campaignQualificationConfirmed": false,
+  "budget": "zero real money; free BSC testnet tokens only",
+  "chainId": 97,
+  "markets": [
+    {
+      "name": "HelloFugu",
+      "agents": [
+        "97:2515",
+        "97:2517"
+      ],
+      "payment": "free faucet tBNB",
+      "hireEvent": "Subscribed",
+      "engagement": "Live Scout and Quote reports; subscription does not automatically invoke them. Preserve real outputs."
+    },
+    {
+      "name": "Pokter",
+      "agent": "97:2541",
+      "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+      "paymentToken": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+      "budgetTestU": "0.1",
+      "funding": "United Stables testnet faucet gives 10 U; own registered wallet signs gas with free tBNB",
+      "historicalFlow": "Job 1336 completed with same provider and exact canonical manifest hash. Historical only, not campaign evidence.",
+      "service": "Canonical funded-testnet-escrow receipt and independently checkable manifest. No rebalance or yield management claimed."
+    }
+  ],
+  "pending": [
+    "User-owned wallet signatures",
+    "Actual marketplace listing",
+    "Three distinct outbound hires with confirmed events and genuine deliverables",
+    "Three completed independent inbound hires",
+    "Five relevant lending actions on three UTC dates",
+    "BNB Chain final verification"
+  ],
+  "limitations": [
+    "Current paid flows must be rechecked before each signature. A historical job is supporting feasibility evidence only.",
+    "Agent Souk settlement event interpretation and owner-approved execution/common-faucet rules remain organizer questions.",
+    "No independent users or wallet transactions were simulated to satisfy the rules."
+  ]
+}

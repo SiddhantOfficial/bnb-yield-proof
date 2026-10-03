@@ -1,3 +1,5 @@
+import { homePage } from './home.js';
+import { answerReport } from './answers.js';
 import { registrationPage } from './register.js';
 import { operationPage } from './operate.js';
 import { MARKET, REGISTRY, RPC, OWNER, AGENT_ID, earnedYield, lendingPlan } from './domain.js';
@@ -50,7 +52,6 @@ export async function report(env) {
 }
 function card(origin,env) {return {name:'Yield Proof',description:'Yield category: inspect BSC testnet Venus lending, earned-yield accounting, and bounded supply proposals signed by the registered owner. Test tokens only.',url:origin+'/a2a',version:'0.2.0',protocolVersion:'0.3.0',preferredTransport:'JSONRPC',capabilities:{streaming:false,pushNotifications:false},defaultInputModes:['text/plain'],defaultOutputModes:['text/plain'],skills:[{id:'venus-yield-report',name:'Venus testnet yield report',description:'Reports actual position, verified cashflows, observed interest and market safety; proposes bounded lending actions.',tags:['yield','lending','testnet','Venus']}],metadata:{category:'yield',chainId:97,erc8004Id:AGENT_ID,owner:OWNER,executionMode:'registered owner signs agent proposals',repository:`https://github.com/${env.REPO}`}};}
 function registration(origin) {return {type:'https://eips.ethereum.org/EIPS/eip-8004#registration-v1',name:'Yield Proof',description:'Yield category. Testnet Venus lending reports and bounded operator-signed lending proposals, with public transaction evidence.',services:[{name:'web',endpoint:origin},{name:'A2A',endpoint:origin+'/.well-known/agent-card.json',version:'0.3.0'}],x402Support:false,active:true,registrations:[{agentId:2550,agentRegistry:'eip155:97:'+REGISTRY}]};}
-function page() {return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yield Proof</title><style>body{font:17px/1.6 system-ui;background:#0c1320;color:#eaf1ff;max-width:780px;margin:7vh auto;padding:0 24px}section{background:#152239;padding:24px;border-radius:16px;margin:24px 0}a{color:#7ad4ff}code{overflow-wrap:anywhere}h1{font-size:3rem}small{color:#b5c5da}</style><h1>Yield Proof</h1><p>Agent <b>2550</b> · Yield · BSC testnet</p><section><h2>Check a lending position</h2><p>Get a live Venus report with market safety, confirmed supplies and withdrawals, and observed interest. All amounts are practice tokens.</p><a href="/api/report">Live yield report</a> · <a href="/.well-known/agent-card.json">Agent card</a></section><section><h2>Campaign progress</h2><p>Identity registered. Marketplace listing, genuine hires and lending activity remain pending.</p><p>The second free marketplace flow is still being checked. Lending proposals remain on hold until that check passes.</p><a href="/register">Registration proof</a> · <a href="/operate">Owner operation page</a> · <a href="https://github.com/SiddhantOfficial/bnb-yield-proof">Public source and evidence</a></section><small>Simulations test reliability and do not count as campaign hires. No winning guarantee.</small></html>`;}
 const error=(id,code,message,status=200)=>json({jsonrpc:'2.0',id,error:{code,message}},status);
 export default {async fetch(request,env) {
  const url=new URL(request.url),origin=url.origin;
@@ -62,13 +63,13 @@ export default {async fetch(request,env) {
   if(b.method!=='message/send')return error(b.id,-32601,'Method not found');
   const m=b.params?.message;
   if(!m||m.kind!=='message'||m.role!=='user'||typeof m.messageId!=='string'||!Array.isArray(m.parts)||!m.parts.length||m.parts.some(x=>!x||x.kind!=='text'||typeof x.text!=='string'))return error(b.id,-32602,'Expected a user message with text parts',400);
-  try {const d=await report(env);return json({jsonrpc:'2.0',id:b.id,result:{kind:'message',role:'agent',messageId:crypto.randomUUID(),parts:[{kind:'text',text:`Yield Proof on BSC testnet: ${d.position.estimatedUnderlyingTbnb} test BNB in Venus; observed interest ${d.position.observedInterestTbnb??d.evidence.confirmedAccounting?.observedInterestTbnb??'unavailable until complete accounting'} tBNB. ${d.actions.length} verified lending actions. Plan: ${d.plan.action} — ${d.plan.reason} Full report: ${origin}/api/report. Test tokens only.`}]}});}catch(e){return error(b.id,-32000,String(e.message||e),503);}
+  try {const d=await report(env);return json({jsonrpc:'2.0',id:b.id,result:{kind:'message',role:'agent',messageId:crypto.randomUUID(),parts:[{kind:'text',text:answerReport(m.parts.map(x=>x.text).join(' '),d,origin)}]}});}catch(e){return error(b.id,-32000,String(e.message||e),503);}
  }
  if(request.method!=='GET') return json({error:'Method not allowed'},405);
  if(url.pathname==='/health')return json({ok:true,chainId:97,agentId:AGENT_ID,at:new Date().toISOString()});
  if(url.pathname==='/.well-known/agent-card.json')return json(card(origin,env));
  if(url.pathname==='/.well-known/agent-registration.json')return json(registration(origin));
  if(url.pathname==='/api/report'||url.pathname==='/api/plan') {try {const d=await report(env);return json(url.pathname==='/api/plan'?{...d.plan,owner:OWNER,chainId:97,blockNumber:d.blockNumber,observedAt:d.observedAt}:d);}catch(e){return json({error:String(e.message||e)},503);}}
- const html=url.pathname==='/'?page():url.pathname==='/register'?registrationPage(origin,OWNER,AGENT_ID):url.pathname==='/operate'?operationPage(OWNER):null;
+ const html=url.pathname==='/'?homePage(env.QUALIFICATION_PREFLIGHT_PASSED==='true'):url.pathname==='/register'?registrationPage(origin,OWNER,AGENT_ID):url.pathname==='/operate'?operationPage(OWNER):null;
  return html?new Response(html,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store'}}):json({error:'Not found'},404);
 }};
