@@ -47,12 +47,27 @@
         "responseSha256": "95bd4f0b6df00a3b7a7486fe30840e3f38ba05d77eb93ad45eb392ad0df1444a"
       },
       "completion": {
-        "status": "service-delivered-period-ended-settlement-pending",
+        "status": "service-delivered-period-ended-payment-settled",
         "periodEndsAt": "2026-10-03T11:41:54.000Z",
         "serviceDelivered": true,
         "periodEnded": true,
-        "settled": false,
-        "note": "There is no completed subscription getter. Record report delivery and period expiry separately from a successful Claimed event and fully claimed deposit."
+        "settled": true,
+        "note": "Live report delivered during hired period; period ended and full escrow payment released. Final campaign review remains pending.",
+        "settlement": {
+          "txHash": "0x949154aeffd86bab2699d6d371853701451a26385852831418989cd280ee49a7",
+          "contract": "0xfdb083371f44Cf53181350389D3217e51B431776",
+          "receiptStatus": "success",
+          "blockNumber": "134624483",
+          "utc": "2026-10-03T11:46:15.000Z",
+          "subscriptionId": "11",
+          "eventTopic": "0xd9cb1e2714d65a111c0f20f060176ad657496bd47a3de04ec7c3d4ca232112ac",
+          "recipient": "0x56a2950dde6b1040d1dcc4b4c4fc314bd56efb0e",
+          "amountToOwnerWei": "24692551822129",
+          "feeWei": "1299607990638",
+          "grossClaimedWei": "25992159812767",
+          "transactionValueWei": "0",
+          "explorer": "https://testnet.bscscan.com/tx/0x949154aeffd86bab2699d6d371853701451a26385852831418989cd280ee49a7"
+        }
       },
       "campaignQualificationConfirmed": false
     }

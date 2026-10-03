@@ -85,5 +85,15 @@
     "receiptStatus": "success",
     "valueWei": "0",
     "url": "https://app.hellofugu.xyz/agent/97%3A2550#hire"
+  },
+  "progress": {
+    "verifiedLendingActions": 1,
+    "lendingUtcDays": [
+      "2026-10-03"
+    ],
+    "outboundDeliveredAndSettled": 1,
+    "independentInboundHires": 0,
+    "evidence": "data/hires.json",
+    "finalCampaignReviewPending": true
   }
 }
