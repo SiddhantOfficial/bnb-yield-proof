@@ -4,7 +4,7 @@
 
 The invitation is published as [GitHub issue #1](https://github.com/SiddhantOfficial/bnb-yield-proof/issues/1) from the genuine `SiddhantOfficial` account. It provides one public place for voluntary tester questions and public receipts.
 
-The BNB developer forum currently blocks posting from this account; no invitation was sent there. The official BNB Discord is signed in, but its onboarding requires phone verification before posting. Its rules prohibit self-promotion, including member DMs, without staff permission. No Discord invitation or direct message has been sent. Do not duplicate the same invitation across forum categories or send bulk direct messages.
+The BNB developer forum currently blocks posting from this account; no invitation was sent there. The official BNB Discord account is verified. Developer and community role reactions are selected, but available channels remain limited to announcements and security. Its rules prohibit self-promotion, including member DMs, without staff permission. One permission and channel-access request was sent to a profile verified with Moderator and BNB Chain Support roles on 3 October 2026 at 23:55 IST. Staff approval is pending. No tester invitation or member outreach has been sent on Discord. Do not duplicate the same invitation across forum categories or send bulk direct messages.
 
 Title: **Yield Proof: seeking 3 independent volunteers to test a BSC testnet lending report**
 
@@ -32,8 +32,8 @@ GitHub publication is complete. Community outreach, replies, volunteers and comp
 
 Sources: [forum category](https://forum.bnbchain.org/categories), [forum guidelines](https://forum.bnbchain.org/guidelines), [campaign rules](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn).
 
-## Discord staff permission request — prepared, not sent
+## Discord staff permission request — sent; approval pending
 
 > Hi moderators, may I share one invitation for independent volunteers to test Yield Proof, a BSC testnet Venus lending report, in an appropriate builder channel? This is a Set and Earn project, and genuine completed independent trials may contribute to its public campaign evidence. Trials use only free faucet test tokens; there are no rewards, reimbursements, reciprocal hires or requests for private keys. The public guide is https://github.com/SiddhantOfficial/bnb-yield-proof/issues/1 . I will not DM members or cross-post. Please let me know whether this is permitted and which channel to use.
 
-Do not send the project invitation unless staff grants permission. User-controlled phone verification is pending; keep any phone number and verification code out of project files.
+Do not send the project invitation unless staff grants permission. User-controlled phone verification is complete. Keep any phone number and verification code out of project files. The draft above summarizes the permission request; private incoming correspondence must stay out of the public ledger.
