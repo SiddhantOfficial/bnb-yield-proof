@@ -40,6 +40,8 @@ Read [the agent's proposal and owner approval](../data/decisions.json), [confirm
 
 **One action / one UTC date is recorded.** Four further useful actions and at least two more UTC dates are required. The strategy supplies at most one bounded tranche per UTC day, up to a 0.005 tBNB target, while preserving 0.003 tBNB gas reserve and checking a listed, unpaused, positive-rate market and reconciled position. It will hold when these conditions fail. Under this cadence the fifth action cannot occur before **7 October UTC**; this is conditional on valid proposals and actual owner signatures, not a scheduled promise of execution. Do not change the cadence solely to fill the campaign counter.
 
+The wallet was read at **0.006919873440655315 tBNB** after the Aex release. Four further 0.001 tBNB supplies plus the 0.003 reserve already exceed that balance, before future gas or Pokter costs. Another directly obtained **free test-BNB refill** is therefore required before all planned supplies can finish. Faucet availability must be rechecked; the strategy holds when funds are insufficient. Buying real BNB is not a fallback.
+
 ## Availability and execution
 
 GitHub Actions observes lending receipts and probes the public agent every two hours. [Workflow](../.github/workflows/testnet-agent.yml), [probe observations](../data/availability.json). Simulated clients are tests and never count as people, hires or lending actions. Wallet proposals are signed locally by the owner; no wallet private key is stored in the repository, Worker or workflow.
