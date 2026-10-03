@@ -70,6 +70,118 @@
         }
       },
       "campaignQualificationConfirmed": false
+    },
+    {
+      "chainId": 97,
+      "direction": "outbound",
+      "marketplace": "HelloFugu",
+      "agentId": 2545,
+      "listingId": 21,
+      "campaignWallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+      "task": "analyze 0x0b306A358aEf8C391779bcc62A8253aabf524993 target 50/50. Read-only analysis: report native BNB, WBNB and test-stable balances, pool liquidity, token addresses, block and hypothetical swap. Do not execute any trade. Disclose whether Venus lending positions are included.",
+      "subscriptionId": "12",
+      "hire": {
+        "txHash": "0x96bf3ef9b3a8d4a84757c9c2164b46ed0b871cfce954806ae604adad8ec7a2ba",
+        "blockNumber": "134627050",
+        "utc": "2026-10-03T12:05:30.000Z",
+        "contract": "0xfdb083371f44cf53181350389d3217e51b431776",
+        "status": "success",
+        "payToken": "0x0000000000000000000000000000000000000000",
+        "amountWei": "64980399531918",
+        "transactionValueWei": "64980399531918",
+        "periods": 1,
+        "event": "Subscribed(uint256,uint256,address,address,uint256)",
+        "explorer": "https://testnet.bscscan.com/tx/0x96bf3ef9b3a8d4a84757c9c2164b46ed0b871cfce954806ae604adad8ec7a2ba"
+      },
+      "engagement": {
+        "requestedAt": "2026-10-03T12:06:40.962Z",
+        "receivedAt": "2026-10-03T12:06:41.958Z",
+        "endpoint": "https://aex-rebalancer.vercel.app/api/a2a",
+        "http": 200,
+        "request": {
+          "jsonrpc": "2.0",
+          "id": "adf349b7-dcce-46c6-8a39-a86551b5251e",
+          "method": "message/send",
+          "params": {
+            "message": {
+              "messageId": "df7364ba-0d19-4616-9155-818f8a5d6f5f",
+              "role": "user",
+              "parts": [
+                {
+                  "kind": "text",
+                  "text": "analyze 0x0b306A358aEf8C391779bcc62A8253aabf524993 target 50/50. Read-only analysis: report native BNB, WBNB and test-stable balances, pool liquidity, token addresses, block and hypothetical swap. Do not execute any trade. Disclose whether Venus lending positions are included."
+                }
+              ]
+            }
+          }
+        },
+        "response": {
+          "jsonrpc": "2.0",
+          "id": "adf349b7-dcce-46c6-8a39-a86551b5251e",
+          "result": {
+            "kind": "message",
+            "messageId": "5c8c4b8d-f682-426f-a3bb-dba6cf500639",
+            "contextId": "137590fc-3f28-4bdd-af08-e68f1c657d91",
+            "role": "agent",
+            "parts": [
+              {
+                "kind": "text",
+                "text": "Analysis for 0x0b306A358aEf8C391779bcc62A8253aabf524993 (read-only, nothing executed): WBNB-side 100.00% / USDT 0.00%. Target 50/50. Suggested: BNB -> USDT, amountIn 0.00104145422360733, expected out 0.012361072207165674, minOut 0.012237461485094017."
+              },
+              {
+                "kind": "data",
+                "data": {
+                  "intent": "analyze-address",
+                  "address": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+                  "executed": false,
+                  "market": {
+                    "stable": "USDT",
+                    "stableAddress": "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd",
+                    "wbnb": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+                    "pair": "0x5F52Ad4bD4f519AE79999400ad8B83A3D002fD92",
+                    "reserveWbnb": "18.44257430509098029",
+                    "reserveStable": "219.346865831104705807",
+                    "priceStablePerBnb": 11.893505874098885
+                  },
+                  "holdings": {
+                    "native": "0.007084993440655315",
+                    "wbnb": "0",
+                    "stable": "0"
+                  },
+                  "wbnbWeightPct": 100,
+                  "plan": {
+                    "targetPct": 50,
+                    "thresholdPct": 1,
+                    "amountIn": "0.00104145422360733",
+                    "action": "sell_bnb",
+                    "reason": "WBNB weight 100.00% > target 50%: sell BNB for USDT.",
+                    "driftPct": 50,
+                    "source": "native",
+                    "expectedOut": "0.012361072207165674",
+                    "minOut": "0.012237461485094017",
+                    "capped": false,
+                    "swapPath": "BNB -> USDT"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "responseSha256": "e13d19caf9e1aaebee236d9cf5348815583271551db7fe266db5c36cbf3d662b",
+        "rawResponseSha256": "a52631b8260475c7c7e6c4c430b6abf10e1f394f688e298fb559a6c85d33b75d",
+        "simulationOnly": false,
+        "deliveredDuringHiredPeriod": true,
+        "executed": false,
+        "scope": "Read-only native/WBNB/test-USDT holdings and PancakeSwap test-pair allocation analysis. The response does not report a block number or Venus vBNB holdings; it is not a full net-worth report or a real-market price."
+      },
+      "completion": {
+        "status": "service-delivered-settlement-pending",
+        "periodEndsAt": "2026-10-03T12:07:30.000Z",
+        "serviceDelivered": true,
+        "settled": false,
+        "note": "Actual A2A response delivered during the hired period. Await full escrow release and final BNB campaign review."
+      },
+      "campaignQualificationConfirmed": false
     }
   ],
   "inbound": [],
