@@ -1,6 +1,6 @@
 # Independent user trial guide
 
-Yield Proof explains a real BSC testnet Venus market and the agent owner's lending position. It shows quoted supply rates, position balances and confirmed transaction evidence. Test tokens have no cash value. The project is preparing genuine marketplace trials; operational preflight has passed for the checked testnet routes, and [HelloFugu listing 22](https://app.hellofugu.xyz/agent/97%3A2550#hire) is confirmed. Actual hire/completion records remain pending. Choose one two-minute period, paid only in free tBNB; the site defaults to ten periods. Then request a useful report from the live app, save it, and preserve the subscription receipt and completion evidence.
+Yield Proof explains a real BSC testnet Venus market and the agent owner's lending position. It shows quoted supply rates, position balances and confirmed transaction evidence. Test tokens have no cash value. The project is preparing genuine marketplace trials; operational preflight has passed for the checked testnet routes, and [HelloFugu listing 22](https://app.hellofugu.xyz/agent/97%3A2550#hire) is confirmed. Actual hire/completion records remain pending. Choose one two-minute period, paid only in free tBNB; the site defaults to ten periods. Then open the [live report](https://bnb-yield-proof.siditude28.workers.dev/api/report) during your subscription, save it with its `observedAt` timestamp, and preserve the subscription receipt and completion evidence.
 
 ## Invitation draft
 
@@ -17,14 +17,14 @@ This is a draft for an appropriate builder/community channel after its posting r
 | Review position growth | Explain the reported vBNB balance and which change came from deposits versus yield | Position snapshot, exchange rate, deposit evidence and an honest statement when observations are insufficient |
 | Audit an executed decision | Explain one published lending transaction and the resulting position | Confirmed receipt, sender, Venus contract, amount, UTC timestamp, decision reason and before/after values |
 
-At initial preparation, the agent had no recorded lending position or lending actions. A zero position must be reported as zero; quoted market APY alone must not be presented as income. The last task becomes available only after a real lending action exists. These tasks inspect the agent owner's position; support for another user's arbitrary wallet must be verified before advertised.
+The owner has one verified Venus testnet supply of 0.001 tBNB on 3 October 2026. The transaction-audit task is available now. Interest must be reconciled with deposit cashflows; quoted market APY must not be presented as earned income. These tasks inspect the agent owner's position; support for another user's arbitrary wallet must be verified before advertised.
 
 ## Beginner steps
 
 1. Read the verified marketplace listing and task description. Check **BSC Testnet, chain 97** and agent **2550**, with the registry address shown in the public repository.
 2. Use your own wallet, controlled only by you. Obtain any free test BNB or test payment token directly from a verified faucet. The builder must not create, control or fund it for you. Shared public faucet funding remains an organizer question; no eligibility guarantee is given.
 3. Review the supported task, small test-token amount and contract before signing locally. Stop if real-money payment is required. Never share your seed phrase or private key.
-4. Complete the verified marketplace hire flow and choose one of the useful tasks above. A preview HTTP request alone is a test, not a completed hire.
+4. Complete the verified marketplace hire flow and choose one of the useful tasks above. During the active period, open the [live report](https://bnb-yield-proof.siditude28.workers.dev/api/report). Save the JSON response, especially `observedAt`, `market`, `position`, `evidence.confirmedAccounting`, `actions` and `plan`. The reported APY is an estimate; confirmed accounting has its own earlier timestamp. A preview HTTP request alone is a test, not a completed hire.
 5. Read the actual result, report errors and finish the marketplace's required completion steps. Retain the hire transaction, job/subscription ID, delivered report and completion evidence. Approval or payment alone does not demonstrate completion.
 
 The owner needs at least three completed hires from distinct independent wallets for the campaign. A genuine user may review the service without promising campaign participation. Do not fabricate three users, rotate wallets, reimburse their fees, fund them or arrange empty task/refund cycles.
