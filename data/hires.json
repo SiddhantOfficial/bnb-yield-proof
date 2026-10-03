@@ -73,5 +73,26 @@
     }
   ],
   "inbound": [],
-  "campaignQualificationConfirmed": false
+  "campaignQualificationConfirmed": false,
+  "failedAttempts": [
+    {
+      "marketplace": "HelloFugu",
+      "agentId": 2545,
+      "listingId": 21,
+      "chainId": 97,
+      "txHash": "0xb1c89fd9d7e848792f709e77e990457c37d9da7e7687c9cd39abd5e0a526942f",
+      "blockNumber": "134626484",
+      "receiptStatus": "reverted",
+      "utc": "2026-10-03T12:01:16.000Z",
+      "deadlineUtc": "2026-10-03T11:59:26.000Z",
+      "diagnosis": "Transaction mined 110 seconds after the signed deadline; subscribe checks deadline before listing and payment.",
+      "hireEvent": false,
+      "transferredPaymentWei": "0",
+      "gasUsed": "32420",
+      "effectiveGasPriceWei": "1000000000",
+      "testnetGasCostWei": "32420000000000",
+      "countsForCampaign": false,
+      "explorer": "https://testnet.bscscan.com/tx/0xb1c89fd9d7e848792f709e77e990457c37d9da7e7687c9cd39abd5e0a526942f"
+    }
+  ]
 }
