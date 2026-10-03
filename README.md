@@ -42,7 +42,7 @@ APY is estimated from the onchain supply rate using an assumed 0.45-second testn
 
 ## Zero-cost feasibility
 
-**Operational zero-cost preflight passed for HelloFugu and Pokter identity 97:2541.** Pokter’s provider matches its listed identity, accepts the generic marketplace job envelope, and has a completed historical receipt whose manifest hash reconciles onchain. Its service is escrow receipt/manifest work; no rebalance is claimed. See [preflight facts](data/preflight.json), [Pokter investigation](docs/pokter-feasibility.md), and [the marketplace audit](docs/marketplace-preflight.md). Actual listing, hires, lending activity and final BNB Chain qualification remain pending. Owner approvals are required for wallet transactions.
+**Operational zero-cost preflight passed for HelloFugu and Pokter identity 97:2541.** Pokter’s provider matches its listed identity, accepts the generic marketplace job envelope, and has a completed historical receipt whose manifest hash reconciles onchain. Its service is escrow receipt/manifest work; no rebalance is claimed. See [preflight facts](data/preflight.json), [Pokter investigation](docs/pokter-feasibility.md), and [the marketplace audit](docs/marketplace-preflight.md). HelloFugu listing **22** is confirmed by [this receipt](https://testnet.bscscan.com/tx/0x03fcc4538b2ddc697f2f2f53e8bd6c3ce4fadd4861b3063f29af4dc449f75f74). Actual hires, lending activity and final BNB Chain qualification remain pending. Owner approvals are required for wallet transactions.
 
 ## Qualification status
 
@@ -50,7 +50,7 @@ APY is estimated from the onchain supply rate using an assumed 0.45-second testn
 | --- | --- |
 | Campaign form submitted before qualifying activity | Owner reports submission on 3 October 2026; independent form confirmation unavailable |
 | ERC-8004 identity owned by campaign wallet | Verified: ID 2550, chain 97, transaction above |
-| Same agent listed on a shortlisted marketplace | Pending listing and verification |
+| Same agent listed on a shortlisted marketplace | Confirmed: HelloFugu listing 22, agent 2550, Yield, same owner and agent wallet |
 | Three distinct outbound hires across two shortlisted marketplaces | Pending actual engagement and onchain hire receipts |
 | Three completed inbound hires from independent wallets | Pending genuine users, completed jobs and receipts |
 | Five lending actions across at least three UTC dates | Pending actual Venus lending transactions |

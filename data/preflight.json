@@ -28,7 +28,6 @@
   ],
   "pending": [
     "User-owned wallet signatures",
-    "Actual marketplace listing",
     "Three distinct outbound hires with confirmed events and genuine deliverables",
     "Three completed independent inbound hires",
     "Five relevant lending actions on three UTC dates",
@@ -38,5 +37,23 @@
     "Current paid flows must be rechecked before each signature. A historical job is supporting feasibility evidence only.",
     "Agent Souk settlement event interpretation and owner-approved execution/common-faucet rules remain organizer questions.",
     "No independent users or wallet transactions were simulated to satisfy the rules."
-  ]
+  ],
+  "listing": {
+    "status": "confirmed",
+    "marketplace": "HelloFugu",
+    "listingId": 22,
+    "agentId": 2550,
+    "chainId": 97,
+    "owner": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+    "agentWallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+    "category": "Yield",
+    "priceUsd": "0.001",
+    "periodSeconds": 120,
+    "transactionHash": "0x03fcc4538b2ddc697f2f2f53e8bd6c3ce4fadd4861b3063f29af4dc449f75f74",
+    "blockNumber": 134615448,
+    "utc": "2026-10-03T10:38:29.000Z",
+    "receiptStatus": "success",
+    "valueWei": "0",
+    "url": "https://app.hellofugu.xyz/agent/97%3A2550#hire"
+  }
 }

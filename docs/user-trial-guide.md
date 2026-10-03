@@ -1,6 +1,6 @@
 # Independent user trial guide
 
-Yield Proof explains a real BSC testnet Venus market and the agent owner's lending position. It shows quoted supply rates, position balances and confirmed transaction evidence. Test tokens have no cash value. The project is preparing genuine marketplace trials; operational preflight has passed for the checked testnet routes, while listing and actual hire/completion records remain pending. Do not start a marketplace hire until the checked listing link and working flow are published.
+Yield Proof explains a real BSC testnet Venus market and the agent owner's lending position. It shows quoted supply rates, position balances and confirmed transaction evidence. Test tokens have no cash value. The project is preparing genuine marketplace trials; operational preflight has passed for the checked testnet routes, and [HelloFugu listing 22](https://app.hellofugu.xyz/agent/97%3A2550#hire) is confirmed. Actual hire/completion records remain pending. Choose one two-minute period, paid only in free tBNB; the site defaults to ten periods. Then request a useful report from the live app, save it, and preserve the subscription receipt and completion evidence.
 
 ## Invitation draft
 

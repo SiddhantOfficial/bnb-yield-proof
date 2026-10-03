@@ -16,7 +16,7 @@ Simulated clients check responsiveness and invalid requests. They are test traff
 | --- | --- |
 | Form registration precedes activity | Owner's confirmation and submission time; subsequent task timestamps |
 | ERC-8004 identity | ID 2550, chain 97, verified owner, resolvable registered URI and receipt |
-| Marketplace listing | Same identity on a shortlisted marketplace; listing after Phase 2 announcement |
+| Marketplace listing | Confirmed HelloFugu listing 22; agent 2550, same owner/agent wallet, Yield, 0.001 USD / 120 seconds; transaction 0x03fcc4538b2ddc697f2f2f53e8bd6c3ce4fadd4861b3063f29af4dc449f75f74 |
 | Three outbound hires | Three different identities across two shortlisted marketplaces, campaign wallet as hirer, successful hire events and engagement |
 | Three inbound hires | Three independent wallets, completed marketplace jobs/subscriptions, task outputs and completion evidence |
 | Operation | Five successful Venus lending actions on three distinct UTC dates, attributable to the agent's yield strategy |
@@ -26,7 +26,7 @@ Registration, approval, faucet receipt, ordinary transfer, probe or simulation d
 
 ## Marketplace candidates and free-flow gate
 
-Operational preflight has passed for HelloFugu and Pokter identity 97:2541. These are checked routes, not completed hires. Check live availability, chain/contract, test token compatibility, actual engagement and the event emitted by the hire flow before relying on one. The operation page still checks market, gas, history and daily allocation limits; the owner must sign any proposal.
+Operational preflight has passed for HelloFugu and Pokter identity 97:2541. HelloFugu listing 22 is now confirmed. These are checked routes, not completed hires. Check live availability, chain/contract, test token compatibility, actual engagement and the event emitted by the hire flow before relying on one. The operation page still checks market, gas, history and daily allocation limits; the owner must sign any proposal.
 
 | Marketplace | Candidate | Proposed use |
 | --- | --- | --- |
