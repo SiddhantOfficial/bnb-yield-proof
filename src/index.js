@@ -1,3 +1,5 @@
+import { registrationPage } from "./register.js";
+
 const MARKET = "0x2E7222e51c0f6e98610A1543Aa3836E092CDe62c";
 const RPC = "https://bsc-testnet-rpc.publicnode.com";
 const EXPLORER = "https://testnet.bscscan.com/tx/";
@@ -105,13 +107,14 @@ function registration(request, env) {
 }
 
 function page(origin) {
-  return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yield Proof · BSC testnet</title><style>body{font:16px/1.6 system-ui;background:#0c1320;color:#eaf1ff;max-width:760px;margin:8vh auto;padding:0 24px}h1{font-size:3rem;line-height:1.1}a{color:#7ad4ff}code{background:#1b2b43;padding:3px 6px;border-radius:4px}section{background:#152239;padding:24px;border-radius:16px;margin-top:24px}small{color:#b5c5da}</style><h1>Yield Proof</h1><p>A live, inspectable yield agent for <b>test tokens only</b> on BSC testnet.</p><section><h2>Live evidence</h2><p><a href="/api/report">View Venus market, wallet position, and transaction history</a></p><p><a href="/.well-known/agent-card.json">Agent card</a> · <a href="https://github.com/SiddhantOfficial/bnb-yield-proof">Source code</a></p><small>No real assets. Quoted testnet APY is a protocol observation, not a return forecast.</small></section><p><small>Agent endpoint: <code>${origin}/a2a</code></small></p></html>`;
+  return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yield Proof · BSC testnet</title><style>body{font:16px/1.6 system-ui;background:#0c1320;color:#eaf1ff;max-width:760px;margin:8vh auto;padding:0 24px}h1{font-size:3rem;line-height:1.1}a{color:#7ad4ff}code{background:#1b2b43;padding:3px 6px;border-radius:4px}section{background:#152239;padding:24px;border-radius:16px;margin-top:24px}small{color:#b5c5da}</style><h1>Yield Proof</h1><p>A live, inspectable yield agent for <b>test tokens only</b> on BSC testnet.</p><section><h2>Live evidence</h2><p><a href="/api/report">View Venus market, wallet position, and transaction history</a></p><p><a href="/.well-known/agent-card.json">Agent card</a> · <a href="https://github.com/SiddhantOfficial/bnb-yield-proof">Source code</a></p><small>No real assets. Quoted testnet APY is a protocol observation, not a return forecast.</small></section><p><a href="/register">Register this agent with your campaign wallet</a></p><p><small>Agent endpoint: <code>${origin}/a2a</code></small></p></html>`;
 }
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === "/") return new Response(page(url.origin), { headers: { "content-type": "text/html; charset=utf-8" } });
+    if (url.pathname === "/register") return new Response(registrationPage(url.origin, env.CAMPAIGN_WALLET), { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
     if (url.pathname === "/health") return json({ ok: true, chainId: 97, at: new Date().toISOString() });
     if (url.pathname === "/.well-known/agent-card.json") return json(card(request, env));
     if (url.pathname === "/.well-known/agent-registration.json") return json(registration(request, env));

@@ -7,6 +7,7 @@ A zero real-money, BSC **testnet** agent for the [BNB Chain Set and Earn campaig
 | Route | Purpose |
 | --- | --- |
 | `/` | Human-readable introduction |
+| `/register` | Owner-guided ERC-8004 testnet registration with MetaMask |
 | `/health` | Availability probe |
 | `/.well-known/agent-card.json` | Discoverable agent card |
 | `/.well-known/agent-registration.json` | ERC-8004 registration file and identity link |
@@ -33,8 +34,8 @@ The simulation sends several independent A2A queries for **testing only**. It cr
 
 ## Registration and setup
 
-1. Sign in with one existing BSC wallet. Record its **public 0x address**; never share its seed phrase or private key. Submit the [campaign registration form](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn) with that wallet and this public repository **before** any qualifying action.
-2. Register this agent as an ERC-8004 identity on BSC testnet using the same owner wallet. Use `https://bnb-yield-proof.siditude28.workers.dev/.well-known/agent-registration.json` as its `agentURI`. Confirm `ownerOf(agentId)` equals the campaign wallet before setting `AGENT_ID`; redeploy so the registration file includes the onchain ID.
+1. Sign in with one existing BSC wallet. Record its **public 0x address**; never share its seed phrase or private key. Submit the [campaign registration form](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn) with that wallet and this public repository **before** any qualifying action. The owner reported submitting the form on 3 October 2026 with `0x0b306A358aEf8C391779bcc62A8253aabf524993`; form submission has not been independently verified.
+2. Open [the registration page](https://bnb-yield-proof.siditude28.workers.dev/register) in Chrome with MetaMask. Claim free test BNB first if needed, connect the campaign wallet, and approve the **BSC testnet** identity transaction. It uses `https://bnb-yield-proof.siditude28.workers.dev/.well-known/agent-registration.json` as its `agentURI`. Confirm `ownerOf(agentId)` equals the campaign wallet before setting `AGENT_ID`; redeploy so the registration file includes the onchain ID.
 3. Use a separate testnet executor wallet for the scheduled Venus actions. Fund it **only with free testnet faucet tokens**. Do not transfer mainnet assets. Store its private key only in the GitHub Actions secret `TESTNET_EXECUTOR_PRIVATE_KEY`, never in code, logs, or chat. Set `EXECUTOR_WALLET` in `wrangler.jsonc` to its public address.
 4. Set the public owner address and agent ID in `wrangler.jsonc`, then deploy using `npm run deploy`. Set public GitHub Actions variables `CAMPAIGN_WALLET`, `AGENT_ID`, and `REGISTRATION_AT_UTC` (the actual form registration time in ISO UTC). The scheduled workflow stays disabled until all three are present.
 5. List the same registered agent on qualifying marketplaces. Test agent engagement and confirm each hire's **onchain hire/completion record**; approvals or transfers alone do not count.
@@ -47,7 +48,7 @@ The executor supplies up to 0.005 free test BNB on a day when it has at least 0.
 
 | Requirement | Status |
 | --- | --- |
-| Campaign registration before qualifying actions | Pending human form submission |
+| Campaign registration before qualifying actions | User reports form submitted 3 October 2026; independent confirmation pending |
 | Registered ERC-8004 owner matches campaign wallet | Pending human wallet signature |
 | Three distinct agents hired across two marketplaces | Pending genuine hires and receipt verification |
 | Three independent wallets complete hires of Yield Proof | Pending genuine users and receipt verification |

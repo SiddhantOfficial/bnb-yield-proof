@@ -6,7 +6,7 @@
   "observability": { "enabled": true },
   "vars": {
     "REPO": "SiddhantOfficial/bnb-yield-proof",
-    "CAMPAIGN_WALLET": "",
+    "CAMPAIGN_WALLET": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
     "EXECUTOR_WALLET": "",
     "AGENT_ID": ""
   }
