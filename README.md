@@ -33,6 +33,8 @@ The operator signs locally from the **one registered campaign wallet**. The serv
 | `/register` | Verified identity information for ID 2550 |
 | `/operate` | Owner lending proposals and MetaMask approval, gated by preflight |
 | `/health` | Availability probe |
+| `/qualification` | Public campaign evidence index and remaining gates |
+| `/api/qualification` | Reviewed ledger counts with current ownership check; no organizer approval claimed |
 | `/.well-known/agent-card.json` | Agent capabilities and yield category |
 | `/.well-known/agent-registration.json` | ERC-8004 registration file |
 | `/api/report` | Live Venus market, campaign wallet position and recorded actions |
@@ -42,18 +44,21 @@ APY is estimated from the onchain supply rate using an assumed 0.45-second testn
 
 ## Zero-cost feasibility
 
-**Operational zero-cost preflight passed for HelloFugu and Pokter identity 97:2541.** Pokter’s provider matches its listed identity, accepts the generic marketplace job envelope, and has a completed historical receipt whose manifest hash reconciles onchain. Its service is escrow receipt/manifest work; no rebalance is claimed. See [preflight facts](data/preflight.json), [Pokter investigation](docs/pokter-feasibility.md), and [the marketplace audit](docs/marketplace-preflight.md). HelloFugu listing **22** is confirmed by [this receipt](https://testnet.bscscan.com/tx/0x03fcc4538b2ddc697f2f2f53e8bd6c3ce4fadd4861b3063f29af4dc449f75f74). The first owner-approved Venus supply is verified: **0.001 tBNB on 3 October 2026**, transaction [0x771d1a62…c3f99c](https://testnet.bscscan.com/tx/0x771d1a62b313f1f612358937390f97a6e95a9f6ae17b28042bb153d221c3f99c). See [the proposal and approval record](data/decisions.json). Actual hires, the remaining lending activity and final BNB Chain qualification remain pending. Owner approvals are required for wallet transactions. **Scout and Quote are excluded after a verified subscription compatibility error; Fugu Watch 2513 and Aex Rebalancer 2545 are the checked replacements. Watch subscription **11** is confirmed and its mock-pool report was delivered during the period; the full escrow payment is [settled](https://testnet.bscscan.com/tx/0x949154aeffd86bab2699d6d371853701451a26385852831418989cd280ee49a7). See [hire evidence](data/hires.json). Aex, Pokter and independent inbound hires remain pending.** See [diagnosis](docs/hellofugu-hire-error.md).
+**Operational zero-cost preflight passed for HelloFugu and Pokter identity 97:2541.** Pokter’s provider matches its listed identity, accepts the generic marketplace job envelope, and has a completed historical receipt whose manifest hash reconciles onchain. Its service is escrow receipt/manifest work; no rebalance is claimed. See [preflight facts](data/preflight.json), [Pokter investigation](docs/pokter-feasibility.md), and [the marketplace audit](docs/marketplace-preflight.md). HelloFugu listing **22** is confirmed by [this receipt](https://testnet.bscscan.com/tx/0x03fcc4538b2ddc697f2f2f53e8bd6c3ce4fadd4861b3063f29af4dc449f75f74). The first owner-approved Venus supply is verified: **0.001 tBNB on 3 October 2026**, transaction [0x771d1a62…c3f99c](https://testnet.bscscan.com/tx/0x771d1a62b313f1f612358937390f97a6e95a9f6ae17b28042bb153d221c3f99c). See [the proposal and approval record](data/decisions.json). Actual hires, the remaining lending activity and final BNB Chain qualification remain pending. Owner approvals are required for wallet transactions. Scout and Quote are excluded after a verified subscription compatibility error. **Fugu Watch 2513 and Aex Rebalancer 2545 have actual delivered reports and full escrow settlement**, with receipts and outputs in [hire evidence](data/hires.json). The third hire on a second marketplace and independent inbound users remain pending. See [diagnosis](docs/hellofugu-hire-error.md).
 
 ## Qualification status
+
+[Live campaign evidence](https://bnb-yield-proof.siditude28.workers.dev/qualification) · [Public review packet](docs/submission.md)
+
 
 | Requirement | Status |
 | --- | --- |
 | Campaign form submitted before qualifying activity | Owner reports submission on 3 October 2026; independent form confirmation unavailable |
 | ERC-8004 identity owned by campaign wallet | Verified: ID 2550, chain 97, transaction above |
 | Same agent listed on a shortlisted marketplace | Confirmed: HelloFugu listing 22, agent 2550, Yield, same owner and agent wallet |
-| Three distinct outbound hires across two shortlisted marketplaces | Pending actual engagement and onchain hire receipts |
+| Three distinct outbound hires across two shortlisted marketplaces | 2 delivered and settled agents on 1 platform; third agent / second platform pending |
 | Three completed inbound hires from independent wallets | Pending genuine users, completed jobs and receipts |
-| Five lending actions across at least three UTC dates | Pending actual Venus lending transactions |
+| Five lending actions across at least three UTC dates | 1 confirmed Venus supply on 1 UTC date; four more useful actions pending |
 | Public app and repository | Published; continued responsiveness must be verified |
 
 See [docs/qualification.md](docs/qualification.md) for evidence requirements, marketplace candidates and remaining checks. Overall qualification and a prize have not been confirmed.

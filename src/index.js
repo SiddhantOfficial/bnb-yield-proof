@@ -2,6 +2,7 @@ import { homePage } from './home.js';
 import { answerReport } from './answers.js';
 import { registrationPage } from './register.js';
 import { operationPage } from './operate.js';
+import { qualificationPage, qualificationSummary } from './qualification.js';
 import { MARKET, REGISTRY, RPC, OWNER, AGENT_ID, earnedYield, lendingPlan } from './domain.js';
 const headers = {'content-type':'application/json; charset=utf-8','access-control-allow-origin':'*','access-control-allow-methods':'GET, POST, OPTIONS','access-control-allow-headers':'Content-Type','cache-control':'no-store'};
 const json = (body,status=200) => new Response(JSON.stringify(body),{status,headers});
@@ -69,7 +70,12 @@ export default {async fetch(request,env) {
  if(url.pathname==='/health')return json({ok:true,chainId:97,agentId:AGENT_ID,at:new Date().toISOString()});
  if(url.pathname==='/.well-known/agent-card.json')return json(card(origin,env));
  if(url.pathname==='/.well-known/agent-registration.json')return json(registration(origin));
+ if(url.pathname==='/api/qualification') {try {
+  const files=['identity','preflight','hires','evidence','availability'];
+  const [records,live]=await Promise.all([Promise.all(files.map(async name=>{const r=await timed(`https://raw.githubusercontent.com/${env.REPO}/main/data/${name}.json`);if(!r.ok)throw Error('Evidence unavailable: '+name);return r.json();})),report(env)]);
+  return json(qualificationSummary({...Object.fromEntries(files.map((name,i)=>[name,records[i]])),liveOwner:live.owner}));
+ }catch(e){return json({error:String(e.message||e)},503);}}
  if(url.pathname==='/api/report'||url.pathname==='/api/plan') {try {const d=await report(env);return json(url.pathname==='/api/plan'?{...d.plan,owner:OWNER,chainId:97,blockNumber:d.blockNumber,observedAt:d.observedAt}:d);}catch(e){return json({error:String(e.message||e)},503);}}
- const html=url.pathname==='/'?homePage(env.QUALIFICATION_PREFLIGHT_PASSED==='true'):url.pathname==='/register'?registrationPage(origin,OWNER,AGENT_ID):url.pathname==='/operate'?operationPage(OWNER):null;
+ const html=url.pathname==='/'?homePage(env.QUALIFICATION_PREFLIGHT_PASSED==='true'):url.pathname==='/register'?registrationPage(origin,OWNER,AGENT_ID):url.pathname==='/operate'?operationPage(OWNER):url.pathname==='/qualification'?qualificationPage():null;
  return html?new Response(html,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store'}}):json({error:'Not found'},404);
 }};

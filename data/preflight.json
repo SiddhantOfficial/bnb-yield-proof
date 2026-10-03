@@ -45,7 +45,7 @@
             "subscriptionId": "12",
             "transactionHash": "0x96bf3ef9b3a8d4a84757c9c2164b46ed0b871cfce954806ae604adad8ec7a2ba",
             "serviceDeliveredDuringHire": true,
-            "settlementPending": true
+            "settlementPending": false
           }
         }
       }
@@ -97,7 +97,7 @@
     "lendingUtcDays": [
       "2026-10-03"
     ],
-    "outboundDeliveredAndSettled": 1,
+    "outboundDeliveredAndSettled": 2,
     "independentInboundHires": 0,
     "evidence": "data/hires.json",
     "finalCampaignReviewPending": true,

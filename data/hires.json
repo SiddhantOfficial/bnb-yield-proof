@@ -175,11 +175,27 @@
         "scope": "Read-only native/WBNB/test-USDT holdings and PancakeSwap test-pair allocation analysis. The response does not report a block number or Venus vBNB holdings; it is not a full net-worth report or a real-market price."
       },
       "completion": {
-        "status": "service-delivered-settlement-pending",
+        "status": "service-delivered-period-ended-payment-settled",
         "periodEndsAt": "2026-10-03T12:07:30.000Z",
         "serviceDelivered": true,
-        "settled": false,
-        "note": "Actual A2A response delivered during the hired period. Await full escrow release and final BNB campaign review."
+        "settled": true,
+        "note": "A2A report delivered during the hired period and full escrow released; final campaign review pending.",
+        "periodEnded": true,
+        "settlement": {
+          "txHash": "0x016e9fde8622fb1ab0637aa6834b2036c21ff090f3bfe1e0f3c2643d9e614dc8",
+          "contract": "0xfdb083371f44Cf53181350389D3217e51B431776",
+          "receiptStatus": "success",
+          "blockNumber": "134627706",
+          "utc": "2026-10-03T12:10:25.000Z",
+          "subscriptionId": "12",
+          "recipient": "0x494Ae5cF2729e662Cc05DbD63D2107d707fD00dE",
+          "amountToOwnerWei": "61731379555323",
+          "feeWei": "3249019976595",
+          "grossClaimedWei": "64980399531918",
+          "transactionValueWei": "0",
+          "explorer": "https://testnet.bscscan.com/tx/0x016e9fde8622fb1ab0637aa6834b2036c21ff090f3bfe1e0f3c2643d9e614dc8",
+          "eventTopic": "0xd9cb1e2714d65a111c0f20f060176ad657496bd47a3de04ec7c3d4ca232112ac"
+        }
       },
       "campaignQualificationConfirmed": false
     }

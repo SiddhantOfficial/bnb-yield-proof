@@ -4,7 +4,7 @@ Yield Proof explains a real BSC testnet Venus market and the agent owner's lendi
 
 ## Invitation draft
 
-> I am building Yield Proof, a BSC testnet Venus lending agent, and looking for independent users who want to try it. It explains the current lending rate, distinguishes quoted APY from actual observed yield, and links its lending decisions to transactions. The trials use free test tokens only. You keep control of your wallet and sign locally; no private key or recovery phrase is needed. If you are learning testnet lending or reviewing agent evidence, try a useful report and share any confusing or incorrect result. Marketplace trials will open after the agent is listed and its current hire link is published. Preview: https://bnb-yield-proof.siditude28.workers.dev/ . Source: https://github.com/SiddhantOfficial/bnb-yield-proof . Qualification and rewards are not guaranteed.
+> I am building Yield Proof, a BSC testnet Venus lending agent, and looking for independent users who want to try it. It explains the current lending rate, distinguishes quoted APY from actual observed yield, and links its lending decisions to transactions. The trials use free test tokens only. You keep control of your wallet and sign locally; no private key or recovery phrase is needed. If you are learning testnet lending or reviewing agent evidence, try a useful report and share any confusing or incorrect result. The agent is listed now: https://app.hellofugu.xyz/agent/97%3A2550#hire . Choose one two-minute period with free test BNB, request a useful report, and retain hire, report and release records. Preview: https://bnb-yield-proof.siditude28.workers.dev/ . Source: https://github.com/SiddhantOfficial/bnb-yield-proof . Qualification and rewards are not guaranteed.
 
 This is a draft for an appropriate builder/community channel after its posting rules are checked. Do not send bulk messages or represent anyone as an independent user without their own participation.
 
@@ -19,7 +19,7 @@ This is a draft for an appropriate builder/community channel after its posting r
 
 At initial preparation, the agent had no recorded lending position or lending actions. A zero position must be reported as zero; quoted market APY alone must not be presented as income. The last task becomes available only after a real lending action exists. These tasks inspect the agent owner's position; support for another user's arbitrary wallet must be verified before advertised.
 
-## Beginner steps when trials open
+## Beginner steps
 
 1. Read the verified marketplace listing and task description. Check **BSC Testnet, chain 97** and agent **2550**, with the registry address shown in the public repository.
 2. Use your own wallet, controlled only by you. Obtain any free test BNB or test payment token directly from a verified faucet. The builder must not create, control or fund it for you. Shared public faucet funding remains an organizer question; no eligibility guarantee is given.
