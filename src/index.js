@@ -80,7 +80,8 @@ function card(request, env) {
       description: "Reports current vBNB market APY, registered wallet position, and verified lending actions.",
       tags: ["yield", "lending", "BSC testnet", "Venus"] }],
     metadata: { chainId: 97, erc8004Id: env.AGENT_ID || null,
-      owner: env.CAMPAIGN_WALLET || null, repository: `https://github.com/${env.REPO}` }
+      owner: env.CAMPAIGN_WALLET || null, executor: env.EXECUTOR_WALLET || null,
+      repository: `https://github.com/${env.REPO}` }
   };
 }
 

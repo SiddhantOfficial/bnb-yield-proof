@@ -4,6 +4,7 @@ import { privateKeyToAccount } from "viem/accounts";
 import { bscTestnet } from "viem/chains";
 
 const MARKET = "0x2E7222e51c0f6e98610A1543Aa3836E092CDe62c";
+const REGISTRY = "0x8004A818BFB912233c491871b3d84c89A494BD9e";
 const EVIDENCE = new URL("../data/evidence.json", import.meta.url);
 const rpc = "https://bsc-testnet-rpc.publicnode.com";
 const owner = process.env.CAMPAIGN_WALLET;
@@ -23,6 +24,11 @@ function requireConfig() {
 requireConfig();
 const publicClient = createPublicClient({ chain: bscTestnet, transport: http(rpc) });
 if (await publicClient.getChainId() !== 97) throw new Error("Refusing non-testnet chain");
+const registeredOwner = await publicClient.readContract({
+  address: REGISTRY, abi: parseAbi(["function ownerOf(uint256 tokenId) view returns (address)"]),
+  functionName: "ownerOf", args: [BigInt(id)]
+});
+if (registeredOwner.toLowerCase() !== owner.toLowerCase()) throw new Error("ERC-8004 owner does not match campaign wallet");
 const code = await publicClient.getBytecode({ address: MARKET });
 if (!code || code === "0x") throw new Error("Venus market contract unavailable");
 const [exchangeCall, supplyCall, controllerCall] = await Promise.all([
