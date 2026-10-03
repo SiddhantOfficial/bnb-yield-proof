@@ -7,7 +7,7 @@
   "vars": {
     "REPO": "SiddhantOfficial/bnb-yield-proof",
     "CAMPAIGN_WALLET": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
-    "EXECUTOR_WALLET": "",
+    "EXECUTOR_WALLET": "0x65A6Ea616F4EE75B4648829942803eDF8bf1A3a2",
     "AGENT_ID": ""
   }
 }
