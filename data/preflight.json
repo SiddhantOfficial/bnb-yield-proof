@@ -80,6 +80,16 @@
         "countsAsLendingAction": false,
         "realMoneySpent": "0",
         "explorer": "https://testnet.bscscan.com/tx/0x80e73dc229a542a75c0b9d9bf615b3664c82e548699c3fbeab21f7de585f5403"
+      },
+      "actualHire": {
+        "jobId": "1386",
+        "creationTransaction": "0x8c01117ea095d869cd6c927c5275f10f2aef955141c1646039e22d0dfb81a8cd",
+        "fundingTransaction": "0xb903a267a1b9e6029296ac6d1413afb8f463e985a52ccc4b8ccaa336b09c3a6e",
+        "submissionTransaction": "0x6964ab4f8c64a2144e12415ab4cbe7412ad630a6f74be7126b8095ddc6087ee6",
+        "serviceDelivered": true,
+        "manifestHashVerified": true,
+        "settlementPending": true,
+        "earliestSettlementUtc": "2026-10-03T14:55:32.000Z"
       }
     }
   ],
@@ -123,9 +133,10 @@
     "independentInboundHires": 0,
     "evidence": "data/hires.json",
     "finalCampaignReviewPending": true,
-    "outboundDelivered": 2,
+    "outboundDelivered": 3,
     "outboundMarketplacesWithDeliveredService": [
-      "HelloFugu"
+      "HelloFugu",
+      "Pokter"
     ]
   }
 }

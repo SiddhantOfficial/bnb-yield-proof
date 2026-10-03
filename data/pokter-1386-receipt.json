@@ -1,0 +1,77 @@
+{
+  "auditedAt": "2026-10-03T14:47:48.374Z",
+  "chainId": 97,
+  "rpc": "https://bsc-testnet-dataseed.bnbchain.org",
+  "blockNumber": "134648685",
+  "chainTimestamp": "1791038867",
+  "manifestUrl": "https://pokter.xyz/api/seller/deliverables/1386?hash=0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+  "httpStatus": 200,
+  "rawUtf8": "{\"chain_id\":97,\"contracts\":{\"commerce\":\"0xa206c0517B6371C6638CD9e4a42Cc9f02A33B0DE\",\"policy\":\"0xd6a4217588F6B1F5657a92A3e94E6422aD771cEA\",\"router\":\"0xD7d36D66d2F1B608A0F943f722D27e3744f66F25\"},\"job_id\":1386,\"metadata\":{\"generated_at\":\"2026-10-03T14:40:30.401Z\",\"producer\":\"Pokter delivery agent\",\"proof\":\"ERC-8183 funded job re-read before submission\"},\"response\":{\"content\":\"{\\\"title\\\":\\\"Pokter verified execution receipt\\\",\\\"task\\\":\\\"{\\\\\\\"protocol\\\\\\\":\\\\\\\"pokter-job\\\\\\\",\\\\\\\"version\\\\\\\":1,\\\\\\\"identity\\\\\\\":{\\\\\\\"chainId\\\\\\\":97,\\\\\\\"tokenId\\\\\\\":\\\\\\\"2541\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Pokt\\\\\\\"},\\\\\\\"category\\\\\\\":\\\\\\\"rebalancing\\\\\\\",\\\\\\\"provider\\\\\\\":\\\\\\\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\\\\\\\",\\\\\\\"providerLabel\\\\\\\":\\\\\\\"Pokt\\\\\\\",\\\\\\\"task\\\\\\\":\\\\\\\"Verify this funded BSC testnet escrow\\u2019s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.\\\\\\\"}\\\",\\\"result\\\":{\\\"escrow_verified\\\":true,\\\"job_id\\\":1386,\\\"chain_id\\\":97,\\\"client\\\":\\\"0x0b306A358aEf8C391779bcc62A8253aabf524993\\\",\\\"provider\\\":\\\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\\\",\\\"budget_raw\\\":\\\"100000000000000000\\\",\\\"status_at_acceptance\\\":\\\"FUNDED\\\"},\\\"limits\\\":\\\"This demonstration proves the funded seller-notification, delivery and settlement lifecycle. It is not investment advice or a claim of trading performance.\\\"}\",\"content_type\":\"application/json\"},\"version\":1}",
+  "rawByteLength": 1447,
+  "rawKeccak256": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+  "sdkCanonicalKeccak256": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+  "rawEqualsSdkCanonical": true,
+  "committedDeliverable": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+  "rawMatchesCommitted": true,
+  "canonicalMatchesCommitted": true,
+  "manifest": {
+    "chain_id": 97,
+    "contracts": {
+      "commerce": "0xa206c0517B6371C6638CD9e4a42Cc9f02A33B0DE",
+      "policy": "0xd6a4217588F6B1F5657a92A3e94E6422aD771cEA",
+      "router": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25"
+    },
+    "job_id": 1386,
+    "metadata": {
+      "generated_at": "2026-10-03T14:40:30.401Z",
+      "producer": "Pokter delivery agent",
+      "proof": "ERC-8183 funded job re-read before submission"
+    },
+    "response": {
+      "content": "{\"title\":\"Pokter verified execution receipt\",\"task\":\"{\\\"protocol\\\":\\\"pokter-job\\\",\\\"version\\\":1,\\\"identity\\\":{\\\"chainId\\\":97,\\\"tokenId\\\":\\\"2541\\\",\\\"name\\\":\\\"Pokt\\\"},\\\"category\\\":\\\"rebalancing\\\",\\\"provider\\\":\\\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\\\",\\\"providerLabel\\\":\\\"Pokt\\\",\\\"task\\\":\\\"Verify this funded BSC testnet escrow’s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.\\\"}\",\"result\":{\"escrow_verified\":true,\"job_id\":1386,\"chain_id\":97,\"client\":\"0x0b306A358aEf8C391779bcc62A8253aabf524993\",\"provider\":\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\",\"budget_raw\":\"100000000000000000\",\"status_at_acceptance\":\"FUNDED\"},\"limits\":\"This demonstration proves the funded seller-notification, delivery and settlement lifecycle. It is not investment advice or a claim of trading performance.\"}",
+      "content_type": "application/json"
+    },
+    "version": 1
+  },
+  "job": {
+    "id": "1386",
+    "client": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+    "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+    "evaluator": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+    "description": "{\"protocol\":\"pokter-job\",\"version\":1,\"identity\":{\"chainId\":97,\"tokenId\":\"2541\",\"name\":\"Pokt\"},\"category\":\"rebalancing\",\"provider\":\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\",\"providerLabel\":\"Pokt\",\"task\":\"Verify this funded BSC testnet escrow’s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.\"}",
+    "budget": "100000000000000000",
+    "expiredAt": "1791121134",
+    "status": 2,
+    "hook": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+    "submittedAt": "1791038432",
+    "deliverable": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e"
+  },
+  "checks": {
+    "clientMatchesCampaign": true,
+    "providerMatchesSelectedIdentity": true,
+    "budgetIsPointOneTestU": true,
+    "statusIsSubmitted": true,
+    "manifestJobMatches": true,
+    "manifestChainMatches": true
+  },
+  "settlement": {
+    "windowSeconds": "900",
+    "submittedAt": "1791038432",
+    "submittedAtUtc": "2026-10-03T14:40:32.000Z",
+    "earliestTimestamp": "1791039332",
+    "earliestUtc": "2026-10-03T14:55:32.000Z",
+    "target": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+    "method": "settle(uint256,bytes)",
+    "args": [
+      "1386",
+      "0x"
+    ],
+    "nativeValue": "0"
+  },
+  "limitations": [
+    "Read-only audit; no settlement transaction performed.",
+    "Submitted is not completed.",
+    "This seller delivered escrow verification, not rebalance strategy execution.",
+    "No guaranteed organizer acceptance or merchandise placement."
+  ]
+}

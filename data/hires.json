@@ -198,6 +198,112 @@
         }
       },
       "campaignQualificationConfirmed": false
+    },
+    {
+      "chainId": 97,
+      "direction": "outbound",
+      "marketplace": "Pokter",
+      "agentId": 2541,
+      "campaignWallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+      "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+      "jobId": "1386",
+      "task": "Verify this funded BSC testnet escrow’s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.",
+      "hire": {
+        "txHash": "0x8c01117ea095d869cd6c927c5275f10f2aef955141c1646039e22d0dfb81a8cd",
+        "blockNumber": "134640436",
+        "utc": "2026-10-03T13:45:54.000Z",
+        "contract": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de",
+        "status": "success",
+        "event": "JobCreated",
+        "eventTopic": "0xb0f0239bfdd96453e24733e18bfc24b70d8fadf123dd977473518dd577ee79b9",
+        "jobId": "1386",
+        "client": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+        "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+        "evaluator": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+        "hook": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25",
+        "payToken": "0xc70B8741B8B07A6d61E54fd4B20f22Fa648E5565",
+        "amountWei": "100000000000000000",
+        "amountTestU": "0.1",
+        "transactionValueWei": "0",
+        "explorer": "https://testnet.bscscan.com/tx/0x8c01117ea095d869cd6c927c5275f10f2aef955141c1646039e22d0dfb81a8cd"
+      },
+      "funding": {
+        "txHash": "0xb903a267a1b9e6029296ac6d1413afb8f463e985a52ccc4b8ccaa336b09c3a6e",
+        "contract": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de",
+        "receiptStatus": "success",
+        "blockNumber": "134647707",
+        "utc": "2026-10-03T14:40:27.000Z",
+        "transactionValueWei": "0",
+        "gasUsed": "105380",
+        "effectiveGasPriceWei": "1000000000",
+        "explorer": "https://testnet.bscscan.com/tx/0xb903a267a1b9e6029296ac6d1413afb8f463e985a52ccc4b8ccaa336b09c3a6e",
+        "event": "JobFunded",
+        "eventTopic": "0xbdb056de345bfeadca7c9fd7df6430bdb83c677c8eefbb601dff56f34d3dac52",
+        "jobId": "1386",
+        "amountBaseUnits": "100000000000000000",
+        "client": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+        "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87"
+      },
+      "engagement": {
+        "requestedAt": "2026-10-03T14:47:48.374Z",
+        "endpoint": "https://pokter.xyz/api/seller/deliverables/1386?hash=0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+        "http": 200,
+        "response": {
+          "chain_id": 97,
+          "contracts": {
+            "commerce": "0xa206c0517B6371C6638CD9e4a42Cc9f02A33B0DE",
+            "policy": "0xd6a4217588F6B1F5657a92A3e94E6422aD771cEA",
+            "router": "0xD7d36D66d2F1B608A0F943f722D27e3744f66F25"
+          },
+          "job_id": 1386,
+          "metadata": {
+            "generated_at": "2026-10-03T14:40:30.401Z",
+            "producer": "Pokter delivery agent",
+            "proof": "ERC-8183 funded job re-read before submission"
+          },
+          "response": {
+            "content": "{\"title\":\"Pokter verified execution receipt\",\"task\":\"{\\\"protocol\\\":\\\"pokter-job\\\",\\\"version\\\":1,\\\"identity\\\":{\\\"chainId\\\":97,\\\"tokenId\\\":\\\"2541\\\",\\\"name\\\":\\\"Pokt\\\"},\\\"category\\\":\\\"rebalancing\\\",\\\"provider\\\":\\\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\\\",\\\"providerLabel\\\":\\\"Pokt\\\",\\\"task\\\":\\\"Verify this funded BSC testnet escrow’s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.\\\"}\",\"result\":{\"escrow_verified\":true,\"job_id\":1386,\"chain_id\":97,\"client\":\"0x0b306A358aEf8C391779bcc62A8253aabf524993\",\"provider\":\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\",\"budget_raw\":\"100000000000000000\",\"status_at_acceptance\":\"FUNDED\"},\"limits\":\"This demonstration proves the funded seller-notification, delivery and settlement lifecycle. It is not investment advice or a claim of trading performance.\"}",
+            "content_type": "application/json"
+          },
+          "version": 1
+        },
+        "rawResponseUtf8": "{\"chain_id\":97,\"contracts\":{\"commerce\":\"0xa206c0517B6371C6638CD9e4a42Cc9f02A33B0DE\",\"policy\":\"0xd6a4217588F6B1F5657a92A3e94E6422aD771cEA\",\"router\":\"0xD7d36D66d2F1B608A0F943f722D27e3744f66F25\"},\"job_id\":1386,\"metadata\":{\"generated_at\":\"2026-10-03T14:40:30.401Z\",\"producer\":\"Pokter delivery agent\",\"proof\":\"ERC-8183 funded job re-read before submission\"},\"response\":{\"content\":\"{\\\"title\\\":\\\"Pokter verified execution receipt\\\",\\\"task\\\":\\\"{\\\\\\\"protocol\\\\\\\":\\\\\\\"pokter-job\\\\\\\",\\\\\\\"version\\\\\\\":1,\\\\\\\"identity\\\\\\\":{\\\\\\\"chainId\\\\\\\":97,\\\\\\\"tokenId\\\\\\\":\\\\\\\"2541\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Pokt\\\\\\\"},\\\\\\\"category\\\\\\\":\\\\\\\"rebalancing\\\\\\\",\\\\\\\"provider\\\\\\\":\\\\\\\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\\\\\\\",\\\\\\\"providerLabel\\\\\\\":\\\\\\\"Pokt\\\\\\\",\\\\\\\"task\\\\\\\":\\\\\\\"Verify this funded BSC testnet escrow\\u2019s client, provider, budget and chain; publish a canonical receipt with a hash I can independently check. State that no rebalance strategy or real-money assets were executed.\\\\\\\"}\\\",\\\"result\\\":{\\\"escrow_verified\\\":true,\\\"job_id\\\":1386,\\\"chain_id\\\":97,\\\"client\\\":\\\"0x0b306A358aEf8C391779bcc62A8253aabf524993\\\",\\\"provider\\\":\\\"0x60eF148485C2a5119fa52CA13c52E9fd98F28e87\\\",\\\"budget_raw\\\":\\\"100000000000000000\\\",\\\"status_at_acceptance\\\":\\\"FUNDED\\\"},\\\"limits\\\":\\\"This demonstration proves the funded seller-notification, delivery and settlement lifecycle. It is not investment advice or a claim of trading performance.\\\"}\",\"content_type\":\"application/json\"},\"version\":1}",
+        "simulationOnly": false,
+        "manifestKeccak256": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+        "sdkCanonicalKeccak256": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+        "committedHash": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+        "manifestHashVerified": true,
+        "deliveredAt": "2026-10-03T14:40:32.000Z",
+        "scope": "Actual funded testnet escrow facts and canonical receipt, not rebalance analysis, asset strategy execution or trading performance.",
+        "submission": {
+          "txHash": "0x6964ab4f8c64a2144e12415ab4cbe7412ad630a6f74be7126b8095ddc6087ee6",
+          "contract": "0xa206c0517b6371c6638cd9e4a42cc9f02a33b0de",
+          "receiptStatus": "success",
+          "blockNumber": "134647718",
+          "utc": "2026-10-03T14:40:32.000Z",
+          "transactionValueWei": "0",
+          "gasUsed": "245889",
+          "effectiveGasPriceWei": "100000000",
+          "explorer": "https://testnet.bscscan.com/tx/0x6964ab4f8c64a2144e12415ab4cbe7412ad630a6f74be7126b8095ddc6087ee6",
+          "outerTransactionTo": "0xcb5cef3c54aa90e9a7ad602a258d3d360cc862b9",
+          "event": "JobSubmitted",
+          "eventTopic": "0x80c17db79857f338a6a6df68a6883ecc0ce78e2202fe61ed979733573f40538e",
+          "provider": "0x60eF148485C2a5119fa52CA13c52E9fd98F28e87",
+          "deliverable": "0x2881c2881882375716adef6bb8f6daebbe22c422c9d575f7486af24fec16dd1e",
+          "attributionNote": "Provider is verified through the commerce event and job; the outer transaction uses account abstraction."
+        }
+      },
+      "completion": {
+        "status": "submitted-awaiting-dispute-window",
+        "serviceDelivered": true,
+        "settled": false,
+        "manifestHashVerified": true,
+        "submittedAt": "2026-10-03T14:40:32.000Z",
+        "earliestSettlementUtc": "2026-10-03T14:55:32.000Z",
+        "disputeWindowSeconds": 900,
+        "note": "Funded service delivered and hash verified; no JobCompleted or settlement is claimed."
+      },
+      "campaignQualificationConfirmed": false
     }
   ],
   "inbound": [],
