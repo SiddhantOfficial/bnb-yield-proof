@@ -12,7 +12,7 @@ A zero real-money, BSC **testnet** agent for the [BNB Chain Set and Earn campaig
 | `/api/report` | Live Venus market, executor position, recorded transactions |
 | `/a2a` | JSON-RPC `message/send` yield report |
 
-The report's APY is a current **testnet quote**, not a promised return. Each action in `data/evidence.json` records a confirmed transaction hash, market snapshot, and reason. The public endpoint also reads the vBNB balance of the separate testnet executor wallet. The campaign wallet remains the owner of ERC-8004 identity and is never used as an automated signing key.
+The report's APY is an **estimate from the onchain rate**, annualized using an assumed 0.45-second block interval, not a promised return. Each action in `data/evidence.json` records a confirmed transaction hash, market snapshot, and reason. The public endpoint also reads the vBNB balance of the separate testnet executor wallet. The campaign wallet remains the owner of ERC-8004 identity and is never used as an automated signing key.
 
 ## Local check
 
@@ -38,6 +38,8 @@ The simulation sends several independent A2A queries for **testing only**. It cr
 4. Set the public owner address and agent ID in `wrangler.jsonc`, then deploy using `npm run deploy`. Set public GitHub Actions variables `CAMPAIGN_WALLET`, `AGENT_ID`, and `REGISTRATION_AT_UTC` (the actual form registration time in ISO UTC). The scheduled workflow stays disabled until all three are present.
 5. List the same registered agent on qualifying marketplaces. Test agent engagement and confirm each hire's **onchain hire/completion record**; approvals or transfers alone do not count.
 
+Deployed endpoint: [bnb-yield-proof.siditude28.workers.dev](https://bnb-yield-proof.siditude28.workers.dev/).
+
 The executor supplies up to 0.005 free test BNB on a day when it has at least 0.001 surplus above a 0.01 test BNB gas reserve, the market is listed and unpaused, and the quoted testnet supply APY is positive. It refuses a second action on the same UTC day. The action is a real testnet lending supply, not a synthetic counter. If those conditions fail, it does nothing. `EXECUTE` must be explicitly `true`; otherwise the script prints a dry-run proposal.
 
 ## Qualification ledger
@@ -56,7 +58,7 @@ Marketplace candidates: [HelloFugu](https://app.hellofugu.xyz/agents?available=y
 ## Evidence sources
 
 - [Official campaign rules](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn)
-- [Venus BSC testnet market API](https://testnetapi.venus.io/markets?chainId=97&limit=100)
+- [BSC testnet RPC](https://bsc-testnet-rpc.publicnode.com) (live onchain market reads)
 - [Venus protocol documentation](https://docs.venus.io/venus-protocol/development/vtokens)
 - [Cloudflare Workers free limits](https://developers.cloudflare.com/workers/platform/limits/)
 - [GitHub Actions public repository runner terms](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)

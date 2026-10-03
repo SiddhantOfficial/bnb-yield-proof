@@ -5,7 +5,6 @@ import { bscTestnet } from "viem/chains";
 
 const MARKET = "0x2E7222e51c0f6e98610A1543Aa3836E092CDe62c";
 const EVIDENCE = new URL("../data/evidence.json", import.meta.url);
-const api = "https://testnetapi.venus.io/markets?chainId=97&limit=100";
 const rpc = "https://bsc-testnet-rpc.publicnode.com";
 const owner = process.env.CAMPAIGN_WALLET;
 const id = process.env.AGENT_ID;
@@ -26,12 +25,18 @@ const publicClient = createPublicClient({ chain: bscTestnet, transport: http(rpc
 if (await publicClient.getChainId() !== 97) throw new Error("Refusing non-testnet chain");
 const code = await publicClient.getBytecode({ address: MARKET });
 if (!code || code === "0x") throw new Error("Venus market contract unavailable");
-const response = await fetch(api, { signal: AbortSignal.timeout(10000) });
-if (!response.ok) throw new Error(`Venus market API HTTP ${response.status}`);
-const markets = await response.json();
-const market = markets.result?.find(x => x.address?.toLowerCase() === MARKET.toLowerCase());
-if (!market?.isListed || Number(market.pausedActionsBitmap) !== 0) throw new Error("Venus vBNB market not safely available");
-if (Number(market.supplyApy) <= 0) throw new Error("No positive observed lending yield; no action");
+const [exchangeCall, supplyCall, controllerCall] = await Promise.all([
+  publicClient.call({ to: MARKET, data: "0xbd6d894d" }),
+  publicClient.call({ to: MARKET, data: "0xae9d70b0" }),
+  publicClient.call({ to: MARKET, data: "0x5fe3b567" })
+]);
+const comptroller = "0x" + controllerCall.data.slice(-40);
+const listingCall = await publicClient.call({ to: comptroller, data: "0x8e8f294b" + MARKET.slice(2).toLowerCase().padStart(64, "0") });
+const listed = BigInt("0x" + listingCall.data.slice(2, 66)) === 1n;
+if (!listed) throw new Error("Venus vBNB market not listed");
+const ratePerBlock = Number(BigInt(supplyCall.data)) / 1e18;
+if (ratePerBlock <= 0) throw new Error("No positive observed lending yield; no action");
+const estimatedApy = (Math.expm1(365 * 24 * 60 * 60 / 0.45 * Math.log1p(ratePerBlock)) * 100).toFixed(4);
 
 const evidence = JSON.parse(fs.readFileSync(EVIDENCE, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
@@ -55,7 +60,7 @@ if (deposit < parseEther("0.001")) {
   process.exit(0);
 }
 
-const reason = `Supply ${formatEther(deposit)} surplus test BNB to listed, unpaused Venus vBNB after observing ${market.supplyApy}% quoted testnet supply APY; retain 0.01 test BNB gas reserve.`;
+const reason = `Supply ${formatEther(deposit)} surplus test BNB to listed Venus vBNB after observing ${estimatedApy}% estimated testnet supply APY from onchain rate; retain 0.01 test BNB gas reserve.`;
 if (!live) {
   console.log(JSON.stringify({ dryRun: true, executor, depositTbnb: formatEther(deposit), reason }, null, 2));
   process.exit(0);
@@ -74,7 +79,7 @@ evidence.actions.push({
   utcDay: new Date(Number(block.timestamp) * 1000).toISOString().slice(0, 10),
   timestamp: new Date(Number(block.timestamp) * 1000).toISOString(),
   chainId: 97, market: MARKET, executor, type: "supply", amountTbnb: formatEther(deposit),
-  quotedSupplyApyPercent: String(market.supplyApy), exchangeRateMantissa: market.exchangeRateMantissa,
+  estimatedSupplyApyPercent: estimatedApy, exchangeRateMantissa: BigInt(exchangeCall.data).toString(),
   reason, txHash, blockNumber: receipt.blockNumber.toString()
 });
 fs.writeFileSync(EVIDENCE, JSON.stringify(evidence, null, 2) + "\n");

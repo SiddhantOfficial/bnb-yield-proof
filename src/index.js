@@ -1,5 +1,4 @@
 const MARKET = "0x2E7222e51c0f6e98610A1543Aa3836E092CDe62c";
-const VENUS = "https://testnetapi.venus.io/markets?chainId=97&limit=100";
 const RPC = "https://bsc-testnet-rpc.publicnode.com";
 const EXPLORER = "https://testnet.bscscan.com/tx/";
 
@@ -24,14 +23,18 @@ async function rpc(method, params) {
 }
 
 async function report(env) {
-  const [marketResponse, evidenceResponse] = await Promise.all([
-    timed(VENUS),
+  const [rateHex, supplyRateHex, comptrollerHex, evidenceResponse] = await Promise.all([
+    rpc("eth_call", [{ to: MARKET, data: "0xbd6d894d" }, "latest"]),
+    rpc("eth_call", [{ to: MARKET, data: "0xae9d70b0" }, "latest"]),
+    rpc("eth_call", [{ to: MARKET, data: "0x5fe3b567" }, "latest"]),
     timed(`https://raw.githubusercontent.com/${env.REPO}/main/data/evidence.json`)
   ]);
-  if (!marketResponse.ok) throw new Error(`Venus API HTTP ${marketResponse.status}`);
-  const markets = await marketResponse.json();
-  const market = markets.result?.find(x => x.address?.toLowerCase() === MARKET.toLowerCase());
-  if (!market) throw new Error("vBNB testnet market unavailable");
+  const comptroller = "0x" + comptrollerHex.slice(-40);
+  const listingHex = await rpc("eth_call", [{ to: comptroller, data: "0x8e8f294b" + MARKET.slice(2).toLowerCase().padStart(64, "0") }, "latest"]);
+  const isListed = BigInt("0x" + listingHex.slice(2, 66)) === 1n;
+  const ratePerBlock = Number(BigInt(supplyRateHex)) / 1e18;
+  const blocksPerYear = 365 * 24 * 60 * 60 / 0.45;
+  const estimatedApy = (Math.expm1(blocksPerYear * Math.log1p(ratePerBlock)) * 100).toFixed(4);
   const evidence = evidenceResponse.ok ? await evidenceResponse.json() : { actions: [] };
   let position = null;
   const address = env.EXECUTOR_WALLET;
@@ -41,7 +44,7 @@ async function report(env) {
       data: "0x70a08231" + address.slice(2).toLowerCase().padStart(64, "0")
     }, "latest"]);
     const vTokens = BigInt(balanceHex);
-    const rate = BigInt(market.exchangeRateMantissa);
+    const rate = BigInt(rateHex);
     const underlyingWei = vTokens * rate / 10n ** 18n;
     position = {
       wallet: address,
@@ -53,11 +56,12 @@ async function report(env) {
   return {
     name: "Yield Proof", network: "BSC testnet", chainId: 97,
     status: env.CAMPAIGN_WALLET && env.AGENT_ID && address ? "configured" : "awaiting owner registration and executor setup",
-    market: { address: MARKET, symbol: "vBNB", listed: market.isListed,
-      pausedActionsBitmap: market.pausedActionsBitmap,
-      quotedSupplyApyPercent: String(market.supplyApy),
-      exchangeRateMantissa: market.exchangeRateMantissa,
-      source: VENUS, observedAt: new Date().toISOString() },
+    market: { address: MARKET, symbol: "vBNB", listed: isListed,
+      estimatedSupplyApyPercent: estimatedApy,
+      apyMethod: "Onchain supplyRatePerBlock annualized at an assumed 0.45-second testnet block interval; estimate only",
+      supplyRatePerBlockMantissa: BigInt(supplyRateHex).toString(),
+      exchangeRateMantissa: BigInt(rateHex).toString(),
+      source: RPC, observedAt: new Date().toISOString() },
     position,
     actions: (evidence.actions || []).map(x => ({ ...x, explorer: EXPLORER + x.txHash })),
     disclaimer: "Testnet demonstration only. No real assets, investment advice, or guaranteed yield."
@@ -100,7 +104,7 @@ export default {
       if (body.method !== "message/send") return json({ jsonrpc: "2.0", error: { code: -32601, message: "Method not found" }, id: body.id ?? null });
       try {
         const data = await report(env);
-        const summary = `Yield Proof: Venus ${data.market.symbol} on BSC testnet quotes ${data.market.quotedSupplyApyPercent}% supply APY. ${data.position ? `Configured wallet holds approximately ${data.position.estimatedUnderlyingTbnb} test BNB in vBNB.` : "Owner wallet has not yet been registered."} ${data.actions.length} recorded lending actions. Full evidence: ${url.origin}/api/report. Test tokens only; no guaranteed return.`;
+        const summary = `Yield Proof: Venus ${data.market.symbol} on BSC testnet has an estimated ${data.market.estimatedSupplyApyPercent}% supply APY from the onchain rate. ${data.position ? `Executor wallet holds approximately ${data.position.estimatedUnderlyingTbnb} test BNB in vBNB.` : "Owner registration and executor setup are pending."} ${data.actions.length} recorded lending actions. Full evidence: ${url.origin}/api/report. Test tokens only; no guaranteed return.`;
         return json({ jsonrpc: "2.0", id: body.id ?? null, result: { kind: "message", role: "agent", messageId: crypto.randomUUID(), parts: [{ kind: "text", text: summary }] } });
       } catch (error) { return json({ jsonrpc: "2.0", id: body.id ?? null, error: { code: -32000, message: String(error.message || error) } }, 503); }
     }
