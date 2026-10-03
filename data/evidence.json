@@ -1,5 +1,47 @@
 {
   "chainId": 97,
   "market": "0x2E7222e51c0f6e98610A1543Aa3836E092CDe62c",
-  "actions": []
+  "actions": [],
+  "transferEvents": [],
+  "rejectedEvents": [],
+  "owner": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+  "agentId": "2550",
+  "ledgerComplete": true,
+  "scannedToBlock": "134605424",
+  "observedAt": "2026-10-03T09:23:26.478Z",
+  "scan": {
+    "fromBlock": "134602398",
+    "throughBlock": "134605424",
+    "throughBlockHash": "0x52fb08df177ad66c5c9461d22920e5a6dc0a26b27493472abdeb19b01bb34ff2",
+    "confirmedHead": "134605424",
+    "confirmations": "12",
+    "complete": true,
+    "observedAt": "2026-10-03T09:23:26.478Z",
+    "chunks": 1
+  },
+  "snapshot": {
+    "at": "2026-10-03T09:23:26.478Z",
+    "timestamp": "2026-10-03T09:23:18.000Z",
+    "blockNumber": "134605424",
+    "blockHash": "0x52fb08df177ad66c5c9461d22920e5a6dc0a26b27493472abdeb19b01bb34ff2",
+    "owner": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+    "balanceWei": "9799156000000000",
+    "vTokens": "0",
+    "openingVTokens": "0",
+    "exchangeRateMantissa": "10732362708568040272272262021",
+    "ratePerBlock": "5024257989",
+    "listed": true,
+    "paused": false,
+    "expectedVTokens": "0",
+    "balanceReconciled": true,
+    "externallyTransferred": false,
+    "ledgerComplete": true,
+    "interestAccountingComplete": true,
+    "underlyingWei": "0",
+    "estimatedUnderlyingTbnb": "0.0",
+    "suppliedTbnb": "0.0",
+    "redeemedTbnb": "0.0",
+    "observedInterestTbnb": "0.0",
+    "accountingNote": "Estimated current underlying + confirmed redemptions - confirmed supplies. Includes protocol rounding; testnet tokens have no cash value."
+  }
 }

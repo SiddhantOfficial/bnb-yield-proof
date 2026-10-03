@@ -1,0 +1,16 @@
+{
+  "chainId": 97,
+  "agentId": "2550",
+  "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+  "owner": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+  "agentUri": "https://bnb-yield-proof.siditude28.workers.dev/.well-known/agent-registration.json",
+  "registrationTx": "0x513911a08245ce9da4d71178d1339531164f484155ddf9165b9ccd127e108eb6",
+  "registrationBlock": "134602398",
+  "registrationUtc": "2026-10-03T09:00:37Z",
+  "verification": "Successful receipt and ownerOf(2550) verified by BSC testnet RPC.",
+  "campaignForm": "Owner reported submitting before identity registration; form confirmation is not verifiable onchain.",
+  "retiredUnusedExecutor": {
+    "address": "0x65A6Ea616F4EE75B4648829942803eDF8bf1A3a2",
+    "status": "Retired before funding or use; signing secret deleted. Not a campaign participant."
+  }
+}

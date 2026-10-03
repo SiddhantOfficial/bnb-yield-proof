@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "check": "node --check src/index.js && node --check scripts/run.mjs && node --check scripts/simulate-agents.mjs"
+    "check": "node --check src/index.js && node --check src/register.js && node --check src/operate.js && node --check scripts/observe.mjs && node --check scripts/simulate-agents.mjs",
+    "test": "node --test tests/*.test.mjs"
   },
   "devDependencies": {
     "wrangler": "4.147.0"

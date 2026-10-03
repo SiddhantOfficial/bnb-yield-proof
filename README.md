@@ -1,22 +1,60 @@
 # Yield Proof
 
-A zero real-money, BSC **testnet** agent for the [BNB Chain Set and Earn campaign](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn). It publishes a live Venus vBNB lending report, a public agent card, an A2A `message/send` endpoint, and links to verified testnet transactions. Test tokens have no cash value. The campaign awards limited merchandise after review; this project cannot guarantee qualification or a place among the first 100 wallets.
+A BSC **testnet** Venus lending agent for the [BNB Chain Set and Earn campaign](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn). It reports market conditions, prepares bounded lending decisions for its owner to approve, and publishes confirmed transaction evidence. Free test tokens have no cash value. No real money is used; qualification and a place among the first 100 wallets remain subject to BNB Chain's review.
+
+## Verified identity
+
+| Field | Value |
+| --- | --- |
+| ERC-8004 agent ID | **2550** |
+| Network | BSC Testnet, chain **97** |
+| Identity registry | `0x8004A818BFB912233c491871b3d84c89A494BD9e` |
+| Owner and campaign wallet | `0x0b306A358aEf8C391779bcc62A8253aabf524993` |
+| Registration transaction | [Confirmed identity registration](https://testnet.bscscan.com/tx/0x513911a08245ce9da4d71178d1339531164f484155ddf9165b9ccd127e108eb6) |
+| Public app | [Yield Proof](https://bnb-yield-proof.siditude28.workers.dev/) |
+
+The owner reported submitting the campaign form on 3 October 2026 before identity registration. Form submission is a user report; the identity transaction and ownership can be checked onchain. Identity registration alone does not complete the campaign.
+
+## Start here
+
+1. Open [Yield Proof](https://bnb-yield-proof.siditude28.workers.dev/) in Chrome with MetaMask. Use the campaign wallet above and **BSC Testnet**. Identity 2550 is already registered; do not register a duplicate.
+2. Use only free test BNB for gas and lending. The [GHOST BNB testnet faucet](https://ghostchain.io/faucet/bnb-testnet/) supplied the initial test tokens. Availability must be checked again when needed. Never buy real BNB for this plan or share a recovery phrase/private key.
+3. The [operation page](https://bnb-yield-proof.siditude28.workers.dev/operate) stays gated until final marketplace preflight passes. Once enabled, review the agent's proposal and reason, then approve a bounded transaction in MetaMask after checking the network, target, amount and gas. Count only a confirmed category-relevant lending transaction.
+4. Marketplace candidates in [the qualification guide](docs/qualification.md) are still awaiting final preflight. Do not hire them until the free flow, agent engagement and actual onchain event have been checked.
+5. The owner must recruit three real independent users who want the service. They use their own wallets and obtain their own free test tokens. Publish completed hire and deliverable records when verified. Simulated clients do not satisfy this requirement.
+
+The operator signs locally from the **one registered campaign wallet**. The server signs no wallet transactions. The previously generated separate executor wallet was unused and has been retired; its automation key has been removed. GitHub Actions performs read-only observation and verification, with no lending signing key.
 
 ## Public endpoints
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Human-readable introduction |
-| `/register` | Owner-guided ERC-8004 testnet registration with MetaMask |
+| `/` | Agent introduction and public status |
+| `/register` | Verified identity information for ID 2550 |
+| `/operate` | Owner lending proposals and MetaMask approval, gated by preflight |
 | `/health` | Availability probe |
-| `/.well-known/agent-card.json` | Discoverable agent card |
-| `/.well-known/agent-registration.json` | ERC-8004 registration file and identity link |
-| `/api/report` | Live Venus market, executor position, recorded transactions |
+| `/.well-known/agent-card.json` | Agent capabilities and yield category |
+| `/.well-known/agent-registration.json` | ERC-8004 registration file |
+| `/api/report` | Live Venus market, campaign wallet position and recorded actions |
 | `/a2a` | JSON-RPC `message/send` yield report |
 
-The report's APY is an **estimate from the onchain rate**, annualized using an assumed 0.45-second block interval, not a promised return. Each action in `data/evidence.json` records a confirmed transaction hash, market snapshot, and reason. The public endpoint also reads the vBNB balance of the separate testnet executor wallet. The campaign wallet remains the owner of ERC-8004 identity and is never used as an automated signing key.
+APY is estimated from the onchain supply rate using an assumed 0.45-second testnet block interval. It is not an observed return or promise. Position growth is assessed from vBNB balances and exchange rates, with deposits distinguished from yield. Transactions and reasons belong in `data/evidence.json`; only confirmed category-relevant transactions contribute to the operation ledger.
 
-## Local check
+## Qualification status
+
+| Requirement | Status |
+| --- | --- |
+| Campaign form submitted before qualifying activity | Owner reports submission on 3 October 2026; independent form confirmation unavailable |
+| ERC-8004 identity owned by campaign wallet | Verified: ID 2550, chain 97, transaction above |
+| Same agent listed on a shortlisted marketplace | Pending listing and verification |
+| Three distinct outbound hires across two shortlisted marketplaces | Pending actual engagement and onchain hire receipts |
+| Three completed inbound hires from independent wallets | Pending genuine users, completed jobs and receipts |
+| Five lending actions across at least three UTC dates | Pending actual Venus lending transactions |
+| Public app and repository | Published; continued responsiveness must be verified |
+
+See [docs/qualification.md](docs/qualification.md) for evidence requirements, marketplace candidates and remaining checks. Overall qualification and a prize have not been confirmed.
+
+## Local development and simulated clients
 
 ```sh
 npm ci
@@ -24,45 +62,21 @@ npm run check
 npm run dev
 ```
 
-In another terminal:
+In a second terminal:
 
 ```sh
 AGENT_URL=http://localhost:8787 node scripts/simulate-agents.mjs
 ```
 
-The simulation sends several independent A2A queries for **testing only**. It creates no wallets, marketplace hires, or campaign proof.
+Simulated clients exercise A2A responses and failure handling for testing only. They create no independent participants, wallet hires or qualifying onchain activity. Keep test results separate from campaign evidence.
 
-## Registration and setup
-
-1. Sign in with one existing BSC wallet. Record its **public 0x address**; never share its seed phrase or private key. Submit the [campaign registration form](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn) with that wallet and this public repository **before** any qualifying action. The owner reported submitting the form on 3 October 2026 with `0x0b306A358aEf8C391779bcc62A8253aabf524993`; form submission has not been independently verified.
-2. Open [the registration page](https://bnb-yield-proof.siditude28.workers.dev/register) in Chrome with MetaMask. Claim free test BNB first if needed, connect the campaign wallet, and approve the **BSC testnet** identity transaction. It uses `https://bnb-yield-proof.siditude28.workers.dev/.well-known/agent-registration.json` as its `agentURI`. Confirm `ownerOf(agentId)` equals the campaign wallet before setting `AGENT_ID`; redeploy so the registration file includes the onchain ID.
-3. The agent uses a separate testnet executor wallet, `0x65A6Ea616F4EE75B4648829942803eDF8bf1A3a2`, for scheduled Venus actions. Fund it **only with free testnet faucet tokens**. Do not transfer mainnet assets. Its private key is stored only in the GitHub Actions secret `TESTNET_EXECUTOR_PRIVATE_KEY`, never in code, logs, or chat.
-4. Set the public owner address and agent ID in `wrangler.jsonc`, then deploy using `npm run deploy`. Set public GitHub Actions variables `CAMPAIGN_WALLET`, `AGENT_ID`, and `REGISTRATION_AT_UTC` (the actual form registration time in ISO UTC). The scheduled workflow stays disabled until all three are present.
-5. List the same registered agent on qualifying marketplaces. Test agent engagement and confirm each hire's **onchain hire/completion record**; approvals or transfers alone do not count.
-
-Deployed endpoint: [bnb-yield-proof.siditude28.workers.dev](https://bnb-yield-proof.siditude28.workers.dev/).
-
-The executor supplies up to 0.005 free test BNB on a day when it has at least 0.001 surplus above a 0.01 test BNB gas reserve, the market is listed and unpaused, and the quoted testnet supply APY is positive. It refuses a second action on the same UTC day. The action is a real testnet lending supply, not a synthetic counter. If those conditions fail, it does nothing. `EXECUTE` must be explicitly `true`; otherwise the script prints a dry-run proposal.
-
-## Qualification ledger
-
-| Requirement | Status |
-| --- | --- |
-| Campaign registration before qualifying actions | User reports form submitted 3 October 2026; independent confirmation pending |
-| Registered ERC-8004 owner matches campaign wallet | Pending human wallet signature |
-| Three distinct agents hired across two marketplaces | Pending genuine hires and receipt verification |
-| Three independent wallets complete hires of Yield Proof | Pending genuine users and receipt verification |
-| Five lending actions across three UTC dates | Pending funded testnet executor and live schedule |
-| Live endpoint and public repository | Check deployment and URLs below |
-
-Marketplace candidates: [HelloFugu](https://app.hellofugu.xyz/agents?available=yes) (testnet subscription) and [Agent Atlas](https://www.agent-atlas.xyz/) (testnet ERC-8183 escrow). Before spending test tokens on any agent, verify its endpoint responds and that its marketplace contract emits a hire/completion event. The [QuickNode faucet](https://faucet.quicknode.com/binance-smart-chain/bnb-testnet) advertises a free test BNB drip without a mainnet minimum; [United Stables testnet faucet](https://united-coin-u.github.io/u-faucet/) advertises test $U. Faucet and marketplace availability can change, so recheck at the wallet action time. If either of two qualifying marketplace flows requires real money or fails to emit a qualifying onchain event, pause rather than spend.
-
-## Evidence sources
+## Sources
 
 - [Official campaign rules](https://www.bnbchain.org/en/hackathons/smart-money-era-set-and-earn)
-- [BSC testnet RPC](https://bsc-testnet-rpc.publicnode.com) (live onchain market reads)
-- [Venus protocol documentation](https://docs.venus.io/venus-protocol/development/vtokens)
-- [Cloudflare Workers free limits](https://developers.cloudflare.com/workers/platform/limits/)
-- [GitHub Actions public repository runner terms](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
-
-No campaign criteria are marked complete until their records have been independently checked.
+- [Official campaign explanation](https://www.bnbchain.org/en/blog/set-and-earn-hire-and-build-ai-agents-on-bnb-chain-win)
+- [ERC-8004 identity specification](https://eips.ethereum.org/EIPS/eip-8004)
+- [BNB Agent SDK](https://docs.bnbchain.org/developer-kit/bnbagent-sdk/)
+- [Venus vToken documentation](https://docs.venus.io/venus-protocol/development/vtokens)
+- [BSC testnet RPC](https://bsc-testnet-rpc.publicnode.com)
+- [Cloudflare Workers limits](https://developers.cloudflare.com/workers/platform/limits/)
+- [GitHub hosted runner terms](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
