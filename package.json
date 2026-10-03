@@ -1,0 +1,17 @@
+{
+  "name": "bnb-yield-proof",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "node --check src/index.js && node --check scripts/run.mjs && node --check scripts/simulate-agents.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
+  },
+  "dependencies": {
+    "viem": "2.37.13"
+  }
+}

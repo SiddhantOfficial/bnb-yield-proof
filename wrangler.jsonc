@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bnb-yield-proof",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-03",
+  "observability": { "enabled": true },
+  "vars": {
+    "REPO": "SiddhantOfficial/bnb-yield-proof",
+    "CAMPAIGN_WALLET": "",
+    "EXECUTOR_WALLET": "",
+    "AGENT_ID": ""
+  }
+}
