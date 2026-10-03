@@ -40,6 +40,10 @@ The operator signs locally from the **one registered campaign wallet**. The serv
 
 APY is estimated from the onchain supply rate using an assumed 0.45-second testnet block interval. It is not an observed return or promise. Position growth is assessed from vBNB balances and exchange rates, with deposits distinguished from yield. Transactions and reasons belong in `data/evidence.json`; only confirmed category-relevant transactions contribute to the operation ledger.
 
+## Zero-cost feasibility
+
+**Qualification attempt paused.** HelloFugu has a verified testnet hire event and responsive agents, but a second qualifying zero-cost marketplace flow remains unverified. See [the marketplace audit](docs/marketplace-preflight.md) for platform-specific blockers and the exact question to ask the organizer. Lending and hire execution remain disabled.
+
 ## Qualification status
 
 | Requirement | Status |
