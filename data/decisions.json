@@ -1,0 +1,33 @@
+{
+  "chainId": 97,
+  "agentId": 2550,
+  "owner": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+  "executionMode": "owner signs bounded agent proposals",
+  "decisions": [
+    {
+      "owner": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+      "chainId": 97,
+      "agentId": 2550,
+      "txHash": "0x771d1a62b313f1f612358937390f97a6e95a9f6ae17b28042bb153d221c3f99c",
+      "amountWei": "1000000000000000",
+      "reason": "Allocate a bounded daily tranche of surplus test BNB to the listed Venus market with positive observed supply rate. Recheck market safety and accrued yield before the next tranche.",
+      "strategy": "staged-testnet-lending-v1",
+      "proposedAt": "2026-10-03T10:45:35.362Z",
+      "receiptBlock": "0x806157d",
+      "confirmed": true,
+      "verification": {
+        "checkedAt": "2026-10-03T10:52:23.720Z",
+        "receiptStatus": "success",
+        "blockNumber": "134616445",
+        "utc": "2026-10-03T10:45:58.000Z",
+        "contract": "0x2E7222e51c0f6e98610A1543Aa3836E092CDe62c",
+        "calldata": "0x1249c58b",
+        "valueWei": "1000000000000000",
+        "mintTokens": "93169",
+        "event": "Mint(address,uint256,uint256)",
+        "explorer": "https://testnet.bscscan.com/tx/0x771d1a62b313f1f612358937390f97a6e95a9f6ae17b28042bb153d221c3f99c"
+      },
+      "approvalEvidence": "Owner-downloaded decision record after local MetaMask confirmation; public receipt verifies owner execution. This is not autonomous signing."
+    }
+  ]
+}
