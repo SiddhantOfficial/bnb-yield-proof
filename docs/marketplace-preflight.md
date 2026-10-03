@@ -1,3 +1,9 @@
+## 3 October update: Scout hire compatibility failure
+
+Scout 2515 and Quote 2517 are excluded from the current hire plan. The deployed subscription implementation rejects registry category values 4 and above during tuple decoding; fresh native subscription simulations reproduce the empty revert. The failed attempt sent no transaction and spent no test BNB. See [diagnosis and unsent maintainer issue draft](hellofugu-hire-error.md).
+
+Fugu Watch **2513**, listing **16**, category 3, passed native subscription simulation and gas estimation on two RPCs, and returns a live mock-pool loan report. Its quote is 0.02 USD reference for one 120-second period, paid only in free test BNB. The task must disclose that this pool differs from Venus. This replacement plus Pokter 2541 preserves the two-platform operational preflight; Aex Rebalancer **2545**, listing **21**, category 0, also passed native subscription simulation/estimation; its registered A2A endpoint returned useful campaign-wallet allocation analysis with `executed:false`. Its price is 0.05 USD reference per 120 seconds. Watch, Aex and Pokter form three checked distinct candidates across two marketplaces; actual hires remain pending. The earlier Scout/Quote checks below are historical, superseded candidate checks.
+
 # Updated operational preflight result — 3 October 2026
 
 **Operational gate passed for HelloFugu and Pokter identity 97:2541; final campaign qualification remains pending.**

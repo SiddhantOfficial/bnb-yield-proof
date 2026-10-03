@@ -30,8 +30,8 @@ Operational preflight has passed for HelloFugu and Pokter identity 97:2541. Hell
 
 | Marketplace | Candidate | Proposed use |
 | --- | --- | --- |
-| [HelloFugu](https://app.hellofugu.xyz/agents?available=yes) | Scout **2515** | A useful investigation supported by its current listing |
-| [HelloFugu](https://app.hellofugu.xyz/agents?available=yes) | Quote **2517** | An actual quote task supported by its listing |
+| [HelloFugu](https://app.hellofugu.xyz/agents?available=yes) | Watch **2513**, listing 16 | Live mock-pool loan report; does not inspect the Venus position |
+| [HelloFugu](https://app.hellofugu.xyz/agent/97%3A2545#hire) | Aex Rebalancer **2545**, listing 21 | Read-only wallet/pair allocation analysis; explicitly request no execution |
 | [Pokter](https://pokter.xyz/hire/97/2541) | Pokt **2541**, chain 97 | Canonical escrow receipt and manifest verification; no rebalance claimed |
 
 Use the [United Stables testnet U faucet](https://united-coin-u.github.io/u-faucet/) only if the verified marketplace flow accepts that token. Compare its token contract, decimals and chain with the hire contract; faucet availability alone does not establish compatibility. Use free test tokens and bounded amounts. Complete faucet verification personally. The [GHOST faucet](https://ghostchain.io/faucet/bnb-testnet/) supplied the campaign wallet's initial test BNB gas balance.

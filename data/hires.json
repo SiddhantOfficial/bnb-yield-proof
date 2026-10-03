@@ -1,0 +1,62 @@
+{
+  "chainId": 97,
+  "campaignWallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+  "outbound": [
+    {
+      "chainId": 97,
+      "direction": "outbound",
+      "marketplace": "HelloFugu",
+      "agentId": 2513,
+      "listingId": 16,
+      "campaignWallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+      "task": "Read my HelloFugu test lending-pool position. Report chain, block, pool, collateral, debt, health factor and verdict; distinguish it from Venus.",
+      "subscriptionId": "11",
+      "hire": {
+        "txHash": "0x5fe0a0e3bd75b617b0a581ec56d082c1187998d6c064c87edfaa90f23611465e",
+        "blockNumber": "134623637",
+        "utc": "2026-10-03T11:39:54.000Z",
+        "contract": "0xfdb083371f44Cf53181350389D3217e51B431776",
+        "status": "success",
+        "payToken": "0x0000000000000000000000000000000000000000",
+        "amountWei": "25992159812767",
+        "transactionValueWei": "25992159812767",
+        "periods": 1,
+        "confirmations": 180,
+        "event": "Subscribed(uint256,uint256,address,address,uint256)",
+        "explorer": "https://testnet.bscscan.com/tx/0x5fe0a0e3bd75b617b0a581ec56d082c1187998d6c064c87edfaa90f23611465e"
+      },
+      "engagement": {
+        "requestedAt": "2026-10-03T11:41:17.610Z",
+        "endpoint": "https://api.hellofugu.xyz/api/run/watch?wallet=0x0b306A358aEf8C391779bcc62A8253aabf524993",
+        "http": 200,
+        "response": {
+          "agent": "Fugu Watch",
+          "chainId": 97,
+          "blockNumber": "134623820",
+          "readAt": "2026-10-03T11:41:17.568Z",
+          "pool": "0xb3e1F06Ac529aded2aA20aA38F4C0b4AD317e5F5",
+          "wallet": "0x0b306A358aEf8C391779bcc62A8253aabf524993",
+          "collateralUsd8": "0",
+          "debtUsd8": "0",
+          "healthFactor": null,
+          "verdict": "no-loan",
+          "says": "No loan on this pool, nothing to watch."
+        },
+        "scope": "HelloFugu mock lending pool, not the Venus position",
+        "simulationOnly": false,
+        "responseSha256": "95bd4f0b6df00a3b7a7486fe30840e3f38ba05d77eb93ad45eb392ad0df1444a"
+      },
+      "completion": {
+        "status": "service-delivered-period-ended-settlement-pending",
+        "periodEndsAt": "2026-10-03T11:41:54.000Z",
+        "serviceDelivered": true,
+        "periodEnded": true,
+        "settled": false,
+        "note": "There is no completed subscription getter. Record report delivery and period expiry separately from a successful Claimed event and fully claimed deposit."
+      },
+      "campaignQualificationConfirmed": false
+    }
+  ],
+  "inbound": [],
+  "campaignQualificationConfirmed": false
+}

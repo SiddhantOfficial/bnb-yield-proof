@@ -8,12 +8,41 @@
     {
       "name": "HelloFugu",
       "agents": [
-        "97:2515",
-        "97:2517"
+        "97:2513",
+        "97:2545"
       ],
       "payment": "free faucet tBNB",
       "hireEvent": "Subscribed",
-      "engagement": "Live Scout and Quote reports; subscription does not automatically invoke them. Preserve real outputs."
+      "engagement": "Watch: live mock-pool loan status, separate from Venus. Aex: registered A2A read-only wallet allocation/liquidity analysis with executed=false. Repeat services after actual hire and preserve outputs.",
+      "excludedAgents": {
+        "97:2515": "HIRING category 4 fails deployed subscription enum decoder",
+        "97:2517": "category 5 fails deployed subscription enum decoder"
+      },
+      "freshNativeSubscribeSimulation": "Watch listing16 one period succeeded in eth_call and eth_estimateGas on official RPC and PublicNode; no transaction sent",
+      "listings": {
+        "97:2513": 16,
+        "97:2545": 21
+      },
+      "candidateChecks": {
+        "97:2513": {
+          "category": 3,
+          "periodSeconds": 120,
+          "priceUsd": "0.02",
+          "nativeWeiQuote": "26026423876388",
+          "simulation": "eth_call and eth_estimateGas succeeded on two RPCs; no transaction sent"
+        },
+        "97:2545": {
+          "category": 0,
+          "periodSeconds": 120,
+          "priceUsd": "0.05",
+          "nativeWeiQuote": "65066059690971",
+          "identityOwner": "0x494Ae5cF2729e662Cc05DbD63D2107d707fD00dE",
+          "listingAgentWallet": "0x5375f369Bc68b1a930c3942e7DfC09A32217F728",
+          "walletNote": "Registered identity owner and disclosed operating wallet differ; native subscription pays listing owner. The registered endpoint delivers read-only analysis.",
+          "simulation": "eth_call and eth_estimateGas succeeded; no transaction sent",
+          "a2a": "https://aex-rebalancer.vercel.app/api/a2a"
+        }
+      }
     },
     {
       "name": "Pokter",
@@ -36,7 +65,8 @@
   "limitations": [
     "Current paid flows must be rechecked before each signature. A historical job is supporting feasibility evidence only.",
     "Agent Souk settlement event interpretation and owner-approved execution/common-faucet rules remain organizer questions.",
-    "No independent users or wallet transactions were simulated to satisfy the rules."
+    "No independent users or wallet transactions were simulated to satisfy the rules.",
+    "Scout/Quote are excluded after reproduced enum decoding failures; Watch and Aex replace them. Simulation and free probes are feasibility evidence only. Refresh oracle quote/deadline before signing."
   ],
   "listing": {
     "status": "confirmed",
