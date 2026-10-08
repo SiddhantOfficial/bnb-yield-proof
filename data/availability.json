@@ -556,6 +556,30 @@
           "milliseconds": 669
         }
       ]
+    },
+    {
+      "at": "2026-10-08T13:33:23.317Z",
+      "ok": true,
+      "checks": [
+        {
+          "name": "health",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 130
+        },
+        {
+          "name": "card",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 91
+        },
+        {
+          "name": "invoke",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 212
+        }
+      ]
     }
   ]
 }
