@@ -6,30 +6,6 @@
   "countsForCampaign": false,
   "observations": [
     {
-      "at": "2026-10-17T15:38:43.311Z",
-      "ok": true,
-      "checks": [
-        {
-          "name": "health",
-          "status": 200,
-          "ok": true,
-          "milliseconds": 136
-        },
-        {
-          "name": "card",
-          "status": 200,
-          "ok": true,
-          "milliseconds": 109
-        },
-        {
-          "name": "invoke",
-          "status": 200,
-          "ok": true,
-          "milliseconds": 589
-        }
-      ]
-    },
-    {
       "at": "2026-10-17T18:31:55.360Z",
       "ok": true,
       "checks": [
@@ -1154,6 +1130,30 @@
           "status": 200,
           "ok": true,
           "milliseconds": 575
+        }
+      ]
+    },
+    {
+      "at": "2026-10-28T08:36:02.150Z",
+      "ok": true,
+      "checks": [
+        {
+          "name": "health",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 124
+        },
+        {
+          "name": "card",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 77
+        },
+        {
+          "name": "invoke",
+          "status": 200,
+          "ok": true,
+          "milliseconds": 463
         }
       ]
     }
